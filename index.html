@@ -7,30 +7,30 @@
 
 <style>
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 :root{
-    --bg:#070b12;
-    --panel:#0d131d;
-    --panel2:#111927;
-    --border:#202b3a;
+    --bg:#05080d;
+    --panel:#0b111a;
+    --panel2:#0f1722;
+    --border:#1d2a3a;
     --text:#f4f7fb;
-    --muted:#8491a3;
-    --blue:#4f8cff;
-    --green:#2dd881;
-    --yellow:#f6c85f;
-    --red:#ff5d73;
-    --purple:#9b7cff;
-    --cyan:#42d9ff;
+    --muted:#7e8da3;
+    --blue:#4285ff;
+    --cyan:#00d9ff;
+    --green:#00df8a;
+    --red:#ff5368;
+    --purple:#8c6cff;
+    --yellow:#ffc94d;
 }
 
 body{
-    font-family:Inter,Segoe UI,Arial,sans-serif;
     background:var(--bg);
     color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
     min-height:100vh;
 }
 
@@ -53,122 +53,134 @@ button{
 /* SIDEBAR */
 
 .sidebar{
-    width:250px;
-    background:#090e16;
+    width:240px;
+    background:#070b11;
     border-right:1px solid var(--border);
-    padding:22px 15px;
     position:fixed;
-    left:0;
     top:0;
+    left:0;
     bottom:0;
     z-index:20;
 }
 
 .logo{
+    height:76px;
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:8px 10px 28px;
+    padding:0 24px;
+    border-bottom:1px solid var(--border);
 }
 
 .logo-icon{
-    width:40px;
-    height:40px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#4f8cff,#7b61ff);
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:linear-gradient(135deg,#4285ff,#6d4dff);
     display:flex;
     align-items:center;
     justify-content:center;
     font-weight:900;
-    font-size:18px;
-    box-shadow:0 0 25px rgba(79,140,255,.25);
+    box-shadow:0 0 25px rgba(66,133,255,.35);
 }
 
-.logo h1{
-    font-size:18px;
+.logo-text{
+    margin-left:12px;
+    font-size:17px;
+    font-weight:800;
 }
 
-.logo span{
-    display:block;
+.logo-text span{
+    color:var(--blue);
+}
+
+.menu{
+    padding:18px 12px;
+}
+
+.menu-title{
     font-size:10px;
-    color:var(--muted);
-    margin-top:3px;
-}
-
-.nav-title{
-    color:#566376;
-    font-size:10px;
+    color:#536174;
     text-transform:uppercase;
     letter-spacing:1.5px;
-    margin:20px 12px 8px;
+    padding:10px 12px;
 }
 
-.nav-item{
+.menu button{
     width:100%;
+    background:none;
     border:0;
-    background:transparent;
-    color:#8995a7;
-    padding:11px 13px;
+    color:#8190a4;
+    padding:12px;
     border-radius:9px;
     text-align:left;
-    margin:2px 0;
+    margin-bottom:3px;
     transition:.2s;
 }
 
-.nav-item:hover{
-    background:#111927;
+.menu button:hover{
+    background:#101a29;
     color:#fff;
 }
 
-.nav-item.active{
-    background:rgba(79,140,255,.13);
+.menu button.active{
+    background:#12213a;
     color:#fff;
-    border:1px solid rgba(79,140,255,.16);
+    box-shadow:inset 3px 0 var(--blue);
+}
+
+.menu-icon{
+    display:inline-block;
+    width:25px;
 }
 
 /* MAIN */
 
 .main{
-    margin-left:250px;
-    width:calc(100% - 250px);
+    margin-left:240px;
+    width:calc(100% - 240px);
 }
 
 .topbar{
-    height:70px;
+    height:76px;
     border-bottom:1px solid var(--border);
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 30px;
-    background:rgba(7,11,18,.88);
-    backdrop-filter:blur(15px);
+    padding:0 28px;
+    background:rgba(5,8,13,.9);
     position:sticky;
     top:0;
     z-index:10;
+    backdrop-filter:blur(12px);
 }
 
-.top-title h2{
-    font-size:19px;
+.top-title{
+    font-size:17px;
+    font-weight:800;
 }
 
-.top-title p{
+.top-sub{
     color:var(--muted);
     font-size:12px;
-    margin-top:3px;
+    margin-top:4px;
 }
 
-.top-actions{
-    display:flex;
-    gap:8px;
+.primary{
+    background:var(--blue);
+    border:0;
+    color:white;
+    padding:11px 18px;
+    border-radius:9px;
+    font-weight:700;
 }
 
-.container{
-    padding:30px;
-    max-width:1800px;
-    margin:auto;
+.primary:hover{
+    filter:brightness(1.1);
 }
 
-/* COMMON */
+.content{
+    padding:32px;
+}
 
 .page{
     display:none;
@@ -178,451 +190,532 @@ button{
     display:block;
 }
 
-.section-header{
+.page-header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:22px;
 }
 
-.section-header h2{
-    font-size:21px;
+.page-header h1{
+    font-size:23px;
 }
 
-.section-header p{
+.page-header p{
     color:var(--muted);
     font-size:12px;
-    margin-top:5px;
+    margin-top:6px;
 }
 
-.btn{
+/* PANELS */
+
+.panel{
+    background:linear-gradient(145deg,#0c131d,#091019);
     border:1px solid var(--border);
-    background:#111927;
-    color:#fff;
-    border-radius:8px;
-    padding:9px 14px;
-    transition:.2s;
-}
-
-.btn:hover{
-    background:#182235;
-}
-
-.btn-primary{
-    background:var(--blue);
-    border-color:var(--blue);
-}
-
-.btn-primary:hover{
-    background:#3c7df0;
-}
-
-.btn-danger{
-    background:rgba(255,93,115,.1);
-    color:#ff7c8d;
-    border-color:rgba(255,93,115,.25);
-}
-
-.grid{
-    display:grid;
-    gap:14px;
-}
-
-.kpi-grid{
-    grid-template-columns:repeat(4,1fr);
-}
-
-.card{
-    background:linear-gradient(145deg,#0e151f,#0b111a);
-    border:1px solid var(--border);
-    border-radius:13px;
+    border-radius:14px;
     padding:18px;
 }
 
-.kpi{
-    min-height:130px;
+.panel-title{
+    font-size:13px;
+    font-weight:800;
 }
 
-.kpi-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.kpi-label{
-    color:var(--muted);
-    font-size:12px;
-}
-
-.kpi-icon{
-    width:34px;
-    height:34px;
-    border-radius:9px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#151f2e;
-    font-size:15px;
-}
-
-.kpi-value{
-    font-size:26px;
-    font-weight:750;
-    margin-top:18px;
-}
-
-.kpi-bottom{
+.panel-sub{
     color:var(--muted);
     font-size:11px;
-    margin-top:7px;
+    margin-top:5px;
 }
 
-.blue{color:var(--blue)}
-.green{color:var(--green)}
-.red{color:var(--red)}
-.yellow{color:var(--yellow)}
-.purple{color:var(--purple)}
-.cyan{color:var(--cyan)}
+/* TANK GRID */
 
-/* DASHBOARD */
-
-.dashboard-grid{
+.tank-grid{
     display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:15px;
-    margin-top:15px;
-}
-
-.dashboard-grid-wide{
-    display:grid;
-    grid-template-columns:1.4fr 1fr 1fr;
-    gap:15px;
-    margin-top:15px;
-}
-
-.card-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
     margin-bottom:18px;
 }
 
-.card-title h3{
-    font-size:14px;
-}
-
-.card-title span{
-    color:var(--muted);
-    font-size:11px;
-}
-
-/* CHART */
-
-.chart-wrap{
-    height:310px;
+.tank-card{
+    min-height:250px;
     position:relative;
+    overflow:hidden;
+    background:linear-gradient(145deg,#0d151f,#080e16);
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:17px;
 }
 
-canvas{
-    width:100%;
-    height:100%;
+.tank-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 110%,rgba(66,133,255,.12),transparent 55%);
+    pointer-events:none;
 }
 
-/* GOAL TANK */
-
-.tank-container{
+.tank-head{
+    position:relative;
+    z-index:3;
     display:flex;
-    align-items:center;
-    gap:25px;
+    justify-content:space-between;
+    align-items:flex-start;
+}
+
+.tank-title{
+    font-size:11px;
+    color:#91a1b6;
+}
+
+.tank-value{
+    font-size:19px;
+    font-weight:900;
+    margin-top:5px;
+}
+
+.tank-percent{
+    font-size:10px;
+    padding:5px 7px;
+    border-radius:7px;
+    background:#111c2b;
+    color:#6ca0ff;
+}
+
+.tank-area{
+    height:150px;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    position:relative;
+    margin-top:10px;
 }
 
 .tank{
-    width:115px;
-    height:220px;
-    border:3px solid #29384d;
-    border-radius:18px 18px 25px 25px;
+    width:90px;
+    height:145px;
+    border:3px solid #263a53;
+    border-radius:15px 15px 22px 22px;
     position:relative;
     overflow:hidden;
-    background:#080d14;
+    background:#050a10;
+    box-shadow:
+        inset 0 0 20px rgba(0,0,0,.7),
+        0 0 20px rgba(0,0,0,.2);
 }
 
 .tank::before{
     content:"";
     position:absolute;
-    top:-12px;
-    left:29px;
-    width:52px;
-    height:15px;
-    border:3px solid #29384d;
-    border-bottom:0;
-    border-radius:7px 7px 0 0;
-}
-
-.tank-liquid{
-    position:absolute;
+    left:12px;
+    top:0;
     bottom:0;
-    left:0;
-    right:0;
-    height:0%;
-    background:linear-gradient(to top,#286cf0,#59a5ff);
-    transition:height:1.2s ease;
-    box-shadow:0 -10px 30px rgba(79,140,255,.2);
+    width:4px;
+    background:rgba(255,255,255,.06);
+    border-radius:10px;
+    z-index:5;
 }
 
-.tank-liquid::after{
+.tank::after{
     content:"";
     position:absolute;
-    top:0;
-    left:-20%;
-    width:140%;
-    height:10px;
-    background:rgba(255,255,255,.15);
+    inset:7px;
+    border:1px solid rgba(255,255,255,.035);
+    border-radius:10px 10px 16px 16px;
+    pointer-events:none;
+    z-index:7;
+}
+
+.water{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:0%;
+    transition:height 1.4s cubic-bezier(.22,1,.36,1);
+    overflow:hidden;
+}
+
+.water::before{
+    content:"";
+    position:absolute;
+    top:-7px;
+    left:-15%;
+    width:130%;
+    height:16px;
     border-radius:50%;
-    animation:wave 2.5s infinite ease-in-out;
+    background:rgba(255,255,255,.18);
+    animation:wave 2.5s linear infinite;
+}
+
+.water::after{
+    content:"";
+    position:absolute;
+    top:-3px;
+    left:-15%;
+    width:130%;
+    height:10px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    animation:waveReverse 3s linear infinite;
 }
 
 @keyframes wave{
-    0%,100%{transform:translateX(-3%)}
-    50%{transform:translateX(3%)}
+    0%{transform:translateX(-8%)}
+    50%{transform:translateX(8%)}
+    100%{transform:translateX(-8%)}
 }
 
-.tank-info h2{
-    font-size:32px;
+@keyframes waveReverse{
+    0%{transform:translateX(8%)}
+    50%{transform:translateX(-8%)}
+    100%{transform:translateX(8%)}
 }
 
-.tank-info p{
-    color:var(--muted);
-    font-size:12px;
-    margin-top:5px;
+.water.blue{
+    background:linear-gradient(to top,#1554c7,#2688ff);
+    box-shadow:0 -5px 25px rgba(38,136,255,.3);
 }
 
-.goal-number{
-    margin-top:20px;
+.water.red{
+    background:linear-gradient(to top,#a51e3b,#ff5368);
+    box-shadow:0 -5px 25px rgba(255,83,104,.25);
 }
 
-.goal-number strong{
-    font-size:18px;
+.water.green{
+    background:linear-gradient(to top,#00985e,#00df8a);
+    box-shadow:0 -5px 25px rgba(0,223,138,.3);
 }
 
-.goal-number span{
-    color:var(--muted);
+.water.purple{
+    background:linear-gradient(to top,#5130b6,#9b78ff);
+    box-shadow:0 -5px 25px rgba(140,108,255,.3);
+}
+
+.water.yellow{
+    background:linear-gradient(to top,#a66b00,#ffc94d);
+    box-shadow:0 -5px 25px rgba(255,201,77,.3);
+}
+
+.water.cyan{
+    background:linear-gradient(to top,#007d9a,#00d9ff);
+    box-shadow:0 -5px 25px rgba(0,217,255,.3);
+}
+
+.bubble{
+    position:absolute;
+    bottom:-15px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:rgba(255,255,255,.45);
+    animation:bubble 3s infinite ease-in;
+}
+
+.bubble:nth-child(1){
+    left:25%;
+    animation-delay:.2s;
+}
+
+.bubble:nth-child(2){
+    left:55%;
+    width:4px;
+    height:4px;
+    animation-delay:1.2s;
+}
+
+.bubble:nth-child(3){
+    left:72%;
+    width:6px;
+    height:6px;
+    animation-delay:2s;
+}
+
+@keyframes bubble{
+    0%{
+        transform:translateY(0) scale(.6);
+        opacity:0;
+    }
+    20%{
+        opacity:.8;
+    }
+    100%{
+        transform:translateY(-115px) scale(1);
+        opacity:0;
+    }
+}
+
+.tank-center{
+    position:absolute;
+    z-index:8;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-size:16px;
+    font-weight:900;
+    text-shadow:0 2px 10px #000;
+}
+
+.tank-info{
+    position:absolute;
+    bottom:9px;
+    left:0;
+    right:0;
+    text-align:center;
+    color:#7e8da3;
+    font-size:9px;
+    z-index:9;
+}
+
+.tank-desc{
+    text-align:center;
+    color:#718097;
+    font-size:10px;
+    margin-top:4px;
+}
+
+/* DASHBOARD GRID */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:14px;
+    margin-bottom:14px;
+}
+
+.chart-panel{
+    min-height:380px;
+}
+
+canvas{
+    width:100%;
+    height:300px;
+    margin-top:18px;
+}
+
+.goal-panel{
+    min-height:380px;
+}
+
+.goal-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:25px;
+    height:300px;
+}
+
+.big-tank{
+    width:110px;
+    height:230px;
+    border:3px solid #2b4059;
+    border-radius:18px 18px 27px 27px;
+    overflow:hidden;
+    position:relative;
+    background:#050a10;
+}
+
+.big-water{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:0;
+    transition:height:1.7s cubic-bezier(.22,1,.36,1);
+    background:linear-gradient(to top,#1554c7,#2f90ff);
+    box-shadow:0 -5px 35px rgba(47,144,255,.4);
+}
+
+.big-water::before{
+    content:"";
+    position:absolute;
+    top:-9px;
+    left:-15%;
+    width:130%;
+    height:20px;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    animation:wave 2.2s infinite linear;
+}
+
+.goal-data{
+    min-width:180px;
+}
+
+.goal-percent{
+    font-size:31px;
+    font-weight:900;
+}
+
+.goal-data p{
     font-size:11px;
+    color:#7e8da3;
+    margin:5px 0 18px;
 }
 
-/* HEALTH */
+.goal-line{
+    margin-bottom:13px;
+}
+
+.goal-line span{
+    display:block;
+    font-size:10px;
+    color:#8391a4;
+}
+
+.goal-line strong{
+    display:block;
+    font-size:14px;
+    margin-top:3px;
+}
+
+/* LOWER PANELS */
+
+.lower-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:14px;
+}
 
 .health-item{
-    margin-bottom:19px;
+    margin-top:17px;
 }
 
-.health-head{
+.health-label{
     display:flex;
     justify-content:space-between;
-    font-size:11px;
-    margin-bottom:7px;
-}
-
-.health-head span:last-child{
-    color:var(--muted);
+    font-size:10px;
+    color:#8b9ab0;
+    margin-bottom:6px;
 }
 
 .progress{
     height:7px;
-    background:#182230;
     border-radius:20px;
+    background:#151e2b;
     overflow:hidden;
 }
 
 .progress-fill{
     height:100%;
     border-radius:20px;
-    transition:width .8s ease;
+    transition:width 1s ease;
 }
 
-.fill-green{background:var(--green)}
-.fill-blue{background:var(--blue)}
-.fill-yellow{background:var(--yellow)}
-.fill-red{background:var(--red)}
-.fill-purple{background:var(--purple)}
+.green-fill{background:var(--green)}
+.blue-fill{background:var(--blue)}
+.yellow-fill{background:var(--yellow)}
+.red-fill{background:var(--red)}
+.purple-fill{background:var(--purple)}
 
-/* FUNNEL */
-
-.funnel{
+.metric-row{
     display:flex;
-    flex-direction:column;
-    gap:8px;
-}
-
-.funnel-row{
-    display:grid;
-    grid-template-columns:95px 1fr 45px;
-    align-items:center;
-    gap:10px;
+    justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px solid #172130;
     font-size:11px;
 }
 
-.funnel-bar{
-    height:24px;
-    background:#172231;
-    border-radius:5px;
+.metric-row:last-child{
+    border-bottom:0;
+}
+
+.metric-row span{
+    color:#7f8da2;
+}
+
+.metric-row strong{
+    color:white;
+}
+
+/* TABLES */
+
+.table-panel{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;
     overflow:hidden;
 }
 
-.funnel-fill{
-    height:100%;
-    background:linear-gradient(90deg,#4f8cff,#8d70ff);
-}
-
-/* BUSINESS CARDS */
-
-.business-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-}
-
-.business-card{
-    border:1px solid var(--border);
-    background:#0b121c;
-    border-radius:11px;
-    padding:15px;
-}
-
-.business-card-head{
+.table-head{
     display:flex;
     justify-content:space-between;
-    gap:10px;
-}
-
-.business-card h4{
-    font-size:14px;
-}
-
-.status{
-    display:inline-flex;
-    padding:4px 8px;
-    border-radius:20px;
-    font-size:9px;
-}
-
-.status.Ativo{
-    background:rgba(45,216,129,.1);
-    color:var(--green);
-}
-
-.status.Planejamento{
-    background:rgba(79,140,255,.1);
-    color:var(--blue);
-}
-
-.status.Pausado{
-    background:rgba(246,200,95,.1);
-    color:var(--yellow);
-}
-
-.status.Encerrado{
-    background:rgba(255,93,115,.1);
-    color:var(--red);
-}
-
-.business-category{
-    color:var(--muted);
-    font-size:11px;
-    margin-top:5px;
-}
-
-.business-money{
-    font-size:19px;
-    margin-top:17px;
-}
-
-.business-meta{
-    color:var(--muted);
-    font-size:10px;
-    margin-top:4px;
-}
-
-/* ALERTS */
-
-.alert-list{
-    display:flex;
-    flex-direction:column;
-    gap:9px;
-}
-
-.alert{
-    padding:11px;
-    border:1px solid var(--border);
-    border-radius:8px;
-    background:#0b111a;
-    font-size:11px;
-}
-
-.alert strong{
-    display:block;
-    margin-bottom:4px;
-}
-
-.alert span{
-    color:var(--muted);
-}
-
-/* TABLE */
-
-.table-wrap{
-    overflow:auto;
-    border:1px solid var(--border);
-    border-radius:11px;
+    padding:18px;
+    border-bottom:1px solid var(--border);
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:750px;
 }
 
-th{
-    text-align:left;
-    color:#6e7c90;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:.8px;
-    padding:13px 15px;
-    border-bottom:1px solid var(--border);
-}
-
+th,
 td{
-    padding:14px 15px;
-    border-bottom:1px solid #18212e;
-    font-size:12px;
-}
-
-tr:last-child td{
-    border-bottom:0;
-}
-
-.table-select{
-    background:#101824;
-    border:1px solid var(--border);
-    color:#fff;
-    padding:6px 8px;
-    border-radius:6px;
+    text-align:left;
+    padding:13px 17px;
+    border-bottom:1px solid #172130;
     font-size:11px;
 }
 
-.actions{
-    display:flex;
-    gap:6px;
+th{
+    color:#708096;
+    font-size:10px;
+    text-transform:uppercase;
 }
 
-.actions button{
+td{
+    color:#cbd4df;
+}
+
+.table-select{
+    background:#101925;
+    color:white;
+    border:1px solid #25344a;
+    border-radius:6px;
+    padding:6px;
+    font-size:10px;
+}
+
+.action-btn{
+    background:#111c2a;
+    color:#aab7c8;
+    border:1px solid #26364b;
+    border-radius:6px;
     padding:6px 9px;
     font-size:10px;
 }
 
+.action-btn:hover{
+    color:white;
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.simple-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:13px;
+    padding:18px;
+}
+
+.simple-card h3{
+    font-size:13px;
+}
+
+.simple-card p{
+    color:var(--muted);
+    font-size:11px;
+    margin-top:7px;
+}
+
 /* MODAL */
 
-.modal{
+.modal-bg{
     display:none;
     position:fixed;
     inset:0;
@@ -633,36 +726,23 @@ tr:last-child td{
     padding:20px;
 }
 
-.modal.show{
+.modal-bg.show{
     display:flex;
 }
 
-.modal-box{
+.modal{
     width:100%;
     max-width:560px;
-    background:#0c131d;
-    border:1px solid var(--border);
-    border-radius:14px;
+    background:#0b121c;
+    border:1px solid #25364d;
+    border-radius:15px;
     padding:22px;
-    max-height:90vh;
-    overflow:auto;
+    box-shadow:0 25px 80px rgba(0,0,0,.6);
 }
 
-.modal-header{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:20px;
-}
-
-.modal-header h3{
-    font-size:17px;
-}
-
-.close{
-    background:transparent;
-    color:var(--muted);
-    border:0;
-    font-size:20px;
+.modal h2{
+    font-size:18px;
+    margin-bottom:18px;
 }
 
 .form-grid{
@@ -672,156 +752,115 @@ tr:last-child td{
 }
 
 .form-group{
-    margin-bottom:13px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
 }
 
 .form-group.full{
     grid-column:1/-1;
 }
 
-label{
-    display:block;
+.form-group label{
     font-size:10px;
-    color:#8491a3;
-    margin-bottom:6px;
+    color:#7e8da3;
 }
 
-input,
-select,
-textarea{
-    width:100%;
+.form-group input,
+.form-group select,
+.form-group textarea{
     background:#080e16;
-    border:1px solid var(--border);
-    border-radius:7px;
-    color:#fff;
+    border:1px solid #233247;
+    color:white;
+    border-radius:8px;
     padding:10px;
     outline:none;
 }
 
-input:focus,
-select:focus,
-textarea:focus{
-    border-color:var(--blue);
-}
-
-textarea{
-    min-height:100px;
+.form-group textarea{
+    min-height:90px;
     resize:vertical;
 }
 
-.modal-footer{
+.modal-actions{
     display:flex;
     justify-content:flex-end;
-    gap:8px;
+    gap:9px;
     margin-top:20px;
 }
 
-/* PLANNING */
-
-.plan-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.plan-card{
-    min-height:170px;
-}
-
-.plan-card h3{
-    font-size:14px;
-}
-
-.plan-card .big{
-    font-size:30px;
-    margin-top:20px;
-}
-
-.plan-card p{
-    color:var(--muted);
-    font-size:11px;
-    margin-top:5px;
+.secondary{
+    background:#111b29;
+    border:1px solid #293b52;
+    color:#c3cfdd;
+    padding:10px 15px;
+    border-radius:8px;
 }
 
 /* EMPTY */
 
 .empty{
-    padding:45px;
     text-align:center;
-    color:var(--muted);
-    border:1px dashed #263345;
-    border-radius:10px;
+    color:#65758b;
+    padding:45px 20px;
+    font-size:12px;
 }
 
-.empty strong{
-    display:block;
-    color:#b7c0cd;
-    margin-bottom:6px;
-}
+/* RESPONSIVE */
 
-/* MOBILE */
-
-.mobile-menu{
-    display:none;
-}
-
-@media(max-width:1100px){
-    .kpi-grid{
+@media(max-width:1200px){
+    .tank-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .dashboard-grid,
-    .dashboard-grid-wide{
+    .dashboard-grid{
         grid-template-columns:1fr;
     }
 
-    .business-grid,
-    .plan-grid{
-        grid-template-columns:1fr 1fr;
+    .lower-grid{
+        grid-template-columns:1fr;
     }
 }
 
 @media(max-width:800px){
     .sidebar{
-        transform:translateX(-100%);
-        transition:.25s;
+        width:70px;
     }
 
-    .sidebar.open{
-        transform:translateX(0);
+    .logo-text,
+    .menu-title,
+    .menu button span:not(.menu-icon){
+        display:none;
+    }
+
+    .logo{
+        justify-content:center;
+        padding:0;
+    }
+
+    .menu button{
+        text-align:center;
     }
 
     .main{
-        margin-left:0;
-        width:100%;
+        margin-left:70px;
+        width:calc(100% - 70px);
     }
 
-    .mobile-menu{
-        display:block;
-        background:transparent;
-        color:#fff;
-        border:0;
-        font-size:20px;
-        margin-right:10px;
+    .content{
+        padding:18px;
+    }
+
+    .tank-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
     }
 
     .topbar{
         padding:0 15px;
-    }
-
-    .container{
-        padding:18px;
-    }
-
-    .kpi-grid,
-    .business-grid,
-    .plan-grid{
-        grid-template-columns:1fr;
-    }
-
-    .tank-container{
-        flex-direction:column;
-        align-items:center;
     }
 
     .form-grid{
@@ -841,79 +880,67 @@ textarea{
 
 <!-- SIDEBAR -->
 
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar">
 
     <div class="logo">
         <div class="logo-icon">QG</div>
-        <div>
-            <h1>QG Empresarial</h1>
-            <span>Central de comando</span>
+        <div class="logo-text">
+            QG <span>EMPRESARIAL</span>
         </div>
     </div>
 
-    <div class="nav-title">Principal</div>
+    <div class="menu">
 
-    <button class="nav-item active" onclick="showPage('dashboard',this)">
-        ◈ Dashboard
-    </button>
+        <div class="menu-title">Principal</div>
 
-    <button class="nav-item" onclick="showPage('businesses',this)">
-        ◫ Negócios
-    </button>
+        <button class="active" onclick="navigate('dashboard',this)">
+            <span class="menu-icon">▦</span>
+            <span>Dashboard</span>
+        </button>
 
-    <button class="nav-item" onclick="showPage('finance',this)">
-        ◇ Financeiro
-    </button>
+        <button onclick="navigate('businesses',this)">
+            <span class="menu-icon">▣</span>
+            <span>Negócios</span>
+        </button>
 
-    <button class="nav-item" onclick="showPage('clients',this)">
-        ◎ Clientes
-    </button>
+        <button onclick="navigate('finance',this)">
+            <span class="menu-icon">R$</span>
+            <span>Financeiro</span>
+        </button>
 
-    <div class="nav-title">Operação</div>
+        <button onclick="navigate('clients',this)">
+            <span class="menu-icon">◎</span>
+            <span>Clientes</span>
+        </button>
 
-    <button class="nav-item" onclick="showPage('projects',this)">
-        ◧ Projetos
-    </button>
+        <div class="menu-title">Gestão</div>
 
-    <button class="nav-item" onclick="showPage('people',this)">
-        ◉ Pessoas
-    </button>
+        <button onclick="navigate('projects',this)">
+            <span class="menu-icon">◫</span>
+            <span>Projetos</span>
+        </button>
 
-    <button class="nav-item" onclick="showPage('goals',this)">
-        ◆ Metas / OKRs
-    </button>
+        <button onclick="navigate('people',this)">
+            <span class="menu-icon">♙</span>
+            <span>Pessoas</span>
+        </button>
 
-    <div class="nav-title">Estratégia</div>
+        <button onclick="navigate('goals',this)">
+            <span class="menu-icon">◈</span>
+            <span>Metas</span>
+        </button>
 
-    <button class="nav-item" onclick="showPage('planning',this)">
-        ◒ Planejamento
-    </button>
+        <button onclick="navigate('planning',this)">
+            <span class="menu-icon">⌁</span>
+            <span>Planejamento</span>
+        </button>
 
-    <button class="nav-item" onclick="showPage('documents',this)">
-        ▣ Documentos
-    </button>
+        <button onclick="navigate('documents',this)">
+            <span class="menu-icon">□</span>
+            <span>Documentos</span>
+        </button>
 
-    <div class="nav-title">Sistema</div>
-
-    <button class="nav-item" onclick="backupData()">
-        ⇩ Backup
-    </button>
-
-    <button class="nav-item" onclick="document.getElementById('restoreInput').click()">
-        ⇧ Restaurar
-    </button>
-
-    <input
-        type="file"
-        id="restoreInput"
-        accept=".json"
-        style="display:none"
-        onchange="restoreData(event)"
-    >
-
-    <button class="nav-item" onclick="resetSystem()">
-        ↻ Zerar QG
-    </button>
+    </div>
 
 </aside>
 
@@ -921,1546 +948,862 @@ textarea{
 
 <main class="main">
 
-    <header class="topbar">
+<header class="topbar">
 
-        <div style="display:flex;align-items:center;">
-            <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+    <div>
+        <div class="top-title" id="topTitle">Dashboard Executivo</div>
+        <div class="top-sub" id="topSub">
+            Visão geral do seu grupo empresarial
+        </div>
+    </div>
 
-            <div class="top-title">
-                <h2 id="pageTitle">Dashboard Executivo</h2>
-                <p id="pageSubtitle">Visão geral do seu grupo empresarial</p>
-            </div>
+    <button class="primary" onclick="openTransactionModal()">
+        + Lançamento
+    </button>
+
+</header>
+
+<div class="content">
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page active">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Dashboard Executivo</h1>
+            <p>Visão consolidada de todos os seus negócios</p>
         </div>
 
-        <div class="top-actions">
-            <button class="btn btn-primary" onclick="openTransactionModal()">
-                + Lançamento
-            </button>
+        <button class="secondary" onclick="renderAll()">
+            ↻ Atualizar
+        </button>
+
+    </div>
+
+    <!-- 8 TANQUES -->
+
+    <div class="tank-grid">
+
+        <!-- FATURAMENTO -->
+
+        <div class="tank-card">
+
+            <div class="tank-head">
+                <div>
+                    <div class="tank-title">Faturamento</div>
+                    <div class="tank-value" id="kpiRevenue">R$ 0,00</div>
+                </div>
+
+                <div class="tank-percent" id="pctRevenue">0%</div>
+            </div>
+
+            <div class="tank-area">
+
+                <div class="tank">
+
+                    <div class="water blue" id="tankRevenue">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+
+                    <div class="tank-center" id="tankRevenuePct">0%</div>
+
+                    <div class="tank-info">META ANUAL</div>
+
+                </div>
+
+            </div>
+
+            <div class="tank-desc">
+                Progresso do faturamento
+            </div>
+
         </div>
 
-    </header>
 
-    <div class="container">
+        <!-- DESPESAS -->
 
-        <!-- DASHBOARD -->
+        <div class="tank-card">
 
-        <section class="page active" id="dashboard">
-
-            <div class="section-header">
+            <div class="tank-head">
 
                 <div>
-                    <h2>Dashboard Executivo</h2>
-                    <p>Visão consolidada de todos os seus negócios</p>
+                    <div class="tank-title">Despesas</div>
+                    <div class="tank-value" id="kpiExpenses">R$ 0,00</div>
                 </div>
 
-                <button class="btn" onclick="renderDashboard()">
-                    ↻ Atualizar
-                </button>
+                <div class="tank-percent" id="pctExpenses">0%</div>
 
             </div>
 
-            <div class="grid kpi-grid">
+            <div class="tank-area">
 
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Faturamento</span>
-                        <div class="kpi-icon blue">R$</div>
+                <div class="tank">
+
+                    <div class="water red" id="tankExpenses">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
                     </div>
 
-                    <div class="kpi-value blue" id="kpiRevenue">
-                        R$ 0
-                    </div>
+                    <div class="tank-center" id="tankExpensesPct">0%</div>
 
-                    <div class="kpi-bottom">
-                        Receita acumulada cadastrada
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Despesas</span>
-                        <div class="kpi-icon red">−</div>
-                    </div>
-
-                    <div class="kpi-value red" id="kpiExpenses">
-                        R$ 0
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Despesas cadastradas
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Resultado Operacional</span>
-                        <div class="kpi-icon green">+</div>
-                    </div>
-
-                    <div class="kpi-value green" id="kpiProfit">
-                        R$ 0
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Receita − despesas operacionais
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Margem</span>
-                        <div class="kpi-icon purple">%</div>
-                    </div>
-
-                    <div class="kpi-value purple" id="kpiMargin">
-                        0%
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Resultado / faturamento
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="grid kpi-grid" style="margin-top:14px;">
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Clientes</span>
-                        <div class="kpi-icon cyan">◎</div>
-                    </div>
-
-                    <div class="kpi-value cyan" id="kpiClients">
-                        0
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Clientes cadastrados
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Novos Clientes</span>
-                        <div class="kpi-icon blue">+</div>
-                    </div>
-
-                    <div class="kpi-value blue" id="kpiNewClients">
-                        0
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Total cadastrado neste mês
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Ticket Médio</span>
-                        <div class="kpi-icon yellow">◆</div>
-                    </div>
-
-                    <div class="kpi-value yellow" id="kpiTicket">
-                        R$ 0
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Faturamento / clientes
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <div class="kpi-top">
-                        <span class="kpi-label">Negócios</span>
-                        <div class="kpi-icon purple">◫</div>
-                    </div>
-
-                    <div class="kpi-value purple" id="kpiBusinesses">
-                        0
-                    </div>
-
-                    <div class="kpi-bottom">
-                        Operações cadastradas
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- GRAPH + GOAL -->
-
-            <div class="dashboard-grid">
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <div>
-                            <h3>Faturamento x Despesas</h3>
-                            <span>Visão anual por mês</span>
-                        </div>
-
-                        <span id="chartYear"></span>
-                    </div>
-
-                    <div class="chart-wrap">
-                        <canvas id="revenueChart"></canvas>
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <div>
-                            <h3>Meta Anual</h3>
-                            <span>Progresso do faturamento</span>
-                        </div>
-                    </div>
-
-                    <div class="tank-container">
-
-                        <div class="tank">
-                            <div class="tank-liquid" id="tankLiquid"></div>
-                        </div>
-
-                        <div class="tank-info">
-
-                            <h2 id="goalPercent">0%</h2>
-
-                            <p>da meta anual atingida</p>
-
-                            <div class="goal-number">
-                                <strong id="goalRevenue">R$ 0</strong>
-                                <span> realizado</span>
-                            </div>
-
-                            <div class="goal-number">
-                                <strong id="goalTarget">R$ 0</strong>
-                                <span> meta anual</span>
-                            </div>
-
-                            <div class="goal-number">
-                                <strong id="goalRemaining">R$ 0</strong>
-                                <span> restante</span>
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <div class="tank-info">LIMITE</div>
 
                 </div>
 
             </div>
 
-            <!-- HEALTH / FUNNEL / OPERATIONS -->
-
-            <div class="dashboard-grid-wide">
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <h3>Saúde Financeira</h3>
-                        <span>Indicadores principais</span>
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Margem operacional</span>
-                            <span id="healthMargin">0%</span>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-fill fill-green"
-                                 id="healthMarginBar"
-                                 style="width:0%">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Despesas / Receita</span>
-                            <span id="healthExpense">0%</span>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-fill fill-yellow"
-                                 id="healthExpenseBar"
-                                 style="width:0%">
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-
-                            <span>
-                                Resultado operacional
-                                <span title="Receita menos despesas operacionais"
-                                      style="cursor:help;color:#4f8cff;">
-                                    ⓘ
-                                </span>
-                            </span>
-
-                            <span id="healthResult">R$ 0</span>
-
-                        </div>
-
-                        <div class="progress">
-
-                            <div class="progress-fill fill-blue"
-                                 id="healthResultBar"
-                                 style="width:0%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Caixa líquido</span>
-                            <span id="healthCash">R$ 0</span>
-                        </div>
-
-                        <div class="progress">
-
-                            <div class="progress-fill fill-purple"
-                                 id="healthCashBar"
-                                 style="width:0%">
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <h3>Funil Comercial</h3>
-                        <span>Clientes</span>
-                    </div>
-
-                    <div class="funnel">
-
-                        <div class="funnel-row">
-                            <span>Leads</span>
-
-                            <div class="funnel-bar">
-                                <div class="funnel-fill"
-                                     id="funnelLeads"
-                                     style="width:0%">
-                                </div>
-                            </div>
-
-                            <strong id="funnelLeadValue">0</strong>
-                        </div>
-
-                        <div class="funnel-row">
-                            <span>Contatos</span>
-
-                            <div class="funnel-bar">
-                                <div class="funnel-fill"
-                                     id="funnelContacts"
-                                     style="width:0%">
-                                </div>
-                            </div>
-
-                            <strong id="funnelContactValue">0</strong>
-                        </div>
-
-                        <div class="funnel-row">
-                            <span>Propostas</span>
-
-                            <div class="funnel-bar">
-                                <div class="funnel-fill"
-                                     id="funnelProposals"
-                                     style="width:0%">
-                                </div>
-                            </div>
-
-                            <strong id="funnelProposalValue">0</strong>
-                        </div>
-
-                        <div class="funnel-row">
-                            <span>Clientes</span>
-
-                            <div class="funnel-bar">
-                                <div class="funnel-fill"
-                                     id="funnelClients"
-                                     style="width:0%">
-                                </div>
-                            </div>
-
-                            <strong id="funnelClientValue">0</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <h3>Operação</h3>
-                        <span>Status atual</span>
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Projetos em andamento</span>
-                            <span id="opProgress">0</span>
-                        </div>
-
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Projetos concluídos</span>
-                            <span id="opCompleted">0</span>
-                        </div>
-
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Projetos atrasados</span>
-                            <span id="opLate">0</span>
-                        </div>
-
-                    </div>
-
-                    <div class="health-item">
-
-                        <div class="health-head">
-                            <span>Pessoas</span>
-                            <span id="opPeople">0</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
+            <div class="tank-desc">
+                Consumo das despesas
             </div>
 
-            <!-- BUSINESSES -->
-
-            <div class="card" style="margin-top:15px;">
-
-                <div class="card-title">
-
-                    <div>
-                        <h3>Portfólio de Negócios</h3>
-                        <span>Visão consolidada</span>
-                    </div>
-
-                    <button class="btn"
-                            onclick="showPage('businesses')">
-                        Ver negócios
-                    </button>
-
-                </div>
-
-                <div id="dashboardBusinesses"></div>
-
-            </div>
-
-            <!-- ALERTS -->
-
-            <div class="dashboard-grid" style="margin-top:15px;">
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <h3>Alertas</h3>
-                        <span>Pontos de atenção</span>
-                    </div>
-
-                    <div class="alert-list" id="alertsList"></div>
-
-                </div>
-
-                <div class="card">
-
-                    <div class="card-title">
-                        <h3>Próximos Projetos</h3>
-                        <span>Deadlines</span>
-                    </div>
-
-                    <div class="alert-list" id="upcomingProjects"></div>
-
-                </div>
-
-            </div>
-
-        </section>
+        </div>
 
 
-        <!-- NEGÓCIOS -->
+        <!-- RESULTADO -->
 
-        <section class="page" id="businesses">
+        <div class="tank-card">
 
-            <div class="section-header">
+            <div class="tank-head">
 
                 <div>
-                    <h2>Negócios</h2>
-                    <p>Controle todas as empresas e operações</p>
+                    <div class="tank-title">Resultado Operacional</div>
+                    <div class="tank-value" id="kpiProfit">R$ 0,00</div>
                 </div>
 
-                <button class="btn btn-primary"
-                        onclick="openBusinessModal()">
-                    + Novo negócio
-                </button>
+                <div class="tank-percent" id="pctProfit">0%</div>
 
             </div>
 
-            <div class="card">
+            <div class="tank-area">
 
-                <div class="table-wrap">
+                <div class="tank">
 
-                    <table>
+                    <div class="water green" id="tankProfit">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
 
-                        <thead>
-                            <tr>
-                                <th>Negócio</th>
-                                <th>Categoria</th>
-                                <th>Meta anual</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
+                    <div class="tank-center" id="tankProfitPct">0%</div>
 
-                        <tbody id="businessTable"></tbody>
-
-                    </table>
+                    <div class="tank-info">RESULTADO</div>
 
                 </div>
 
             </div>
 
-        </section>
+            <div class="tank-desc">
+                Receita menos despesas
+            </div>
+
+        </div>
 
 
-        <!-- FINANCEIRO -->
+        <!-- MARGEM -->
 
-        <section class="page" id="finance">
+        <div class="tank-card">
 
-            <div class="section-header">
+            <div class="tank-head">
 
                 <div>
-                    <h2>Financeiro</h2>
-                    <p>Receitas e despesas</p>
+                    <div class="tank-title">Margem</div>
+                    <div class="tank-value" id="kpiMargin">0%</div>
                 </div>
 
-                <button class="btn btn-primary"
-                        onclick="openTransactionModal()">
-                    + Lançamento
-                </button>
+                <div class="tank-percent" id="pctMargin">0%</div>
 
             </div>
 
-            <div class="grid kpi-grid">
+            <div class="tank-area">
 
-                <div class="card kpi">
+                <div class="tank">
 
-                    <span class="kpi-label">Receitas</span>
-
-                    <div class="kpi-value green"
-                         id="financeRevenue">
-                        R$ 0
+                    <div class="water purple" id="tankMargin">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
                     </div>
 
-                </div>
+                    <div class="tank-center" id="tankMarginPct">0%</div>
 
-                <div class="card kpi">
-
-                    <span class="kpi-label">Despesas</span>
-
-                    <div class="kpi-value red"
-                         id="financeExpenses">
-                        R$ 0
-                    </div>
-
-                </div>
-
-                <div class="card kpi">
-
-                    <span class="kpi-label">Resultado</span>
-
-                    <div class="kpi-value blue"
-                         id="financeResult">
-                        R$ 0
-                    </div>
-
-                </div>
-
-                <div class="card kpi">
-
-                    <span class="kpi-label">Lançamentos</span>
-
-                    <div class="kpi-value purple"
-                         id="financeCount">
-                        0
-                    </div>
+                    <div class="tank-info">MARGEM</div>
 
                 </div>
 
             </div>
 
-            <div class="card" style="margin-top:15px;">
-
-                <div class="table-wrap">
-
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Descrição</th>
-                                <th>Tipo</th>
-                                <th>Categoria</th>
-                                <th>Valor</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="financeTable"></tbody>
-
-                    </table>
-
-                </div>
-
+            <div class="tank-desc">
+                Eficiência financeira
             </div>
 
-        </section>
+        </div>
 
 
         <!-- CLIENTES -->
 
-        <section class="page" id="clients">
+        <div class="tank-card">
 
-            <div class="section-header">
-
-                <div>
-                    <h2>Clientes</h2>
-                    <p>Base comercial</p>
-                </div>
-
-                <button class="btn btn-primary"
-                        onclick="openClientModal()">
-                    + Cliente
-                </button>
-
-            </div>
-
-            <div class="grid kpi-grid">
-
-                <div class="card kpi">
-                    <span class="kpi-label">Total de clientes</span>
-                    <div class="kpi-value cyan"
-                         id="clientTotal">
-                        0
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <span class="kpi-label">Ativos</span>
-                    <div class="kpi-value green"
-                         id="clientActive">
-                        0
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <span class="kpi-label">Leads</span>
-                    <div class="kpi-value blue"
-                         id="clientLeads">
-                        0
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <span class="kpi-label">Propostas</span>
-                    <div class="kpi-value yellow"
-                         id="clientProposals">
-                        0
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card" style="margin-top:15px;">
-
-                <div class="table-wrap">
-
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Empresa</th>
-                                <th>Status</th>
-                                <th>Valor</th>
-                                <th>Cadastro</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="clientTable"></tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- PROJETOS -->
-
-        <section class="page" id="projects">
-
-            <div class="section-header">
+            <div class="tank-head">
 
                 <div>
-                    <h2>Projetos</h2>
-                    <p>Controle operacional</p>
+                    <div class="tank-title">Clientes</div>
+                    <div class="tank-value" id="kpiClients">0</div>
                 </div>
 
-                <button class="btn btn-primary"
-                        onclick="openProjectModal()">
-                    + Projeto
-                </button>
+                <div class="tank-percent" id="pctClients">0%</div>
 
             </div>
 
-            <div class="grid kpi-grid">
+            <div class="tank-area">
 
-                <div class="card kpi">
-                    <span class="kpi-label">Projetos</span>
-                    <div class="kpi-value blue"
-                         id="projectTotal">
-                        0
+                <div class="tank">
+
+                    <div class="water cyan" id="tankClients">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
                     </div>
-                </div>
 
-                <div class="card kpi">
-                    <span class="kpi-label">Em andamento</span>
-                    <div class="kpi-value yellow"
-                         id="projectProgress">
-                        0
-                    </div>
-                </div>
+                    <div class="tank-center" id="tankClientsPct">0%</div>
 
-                <div class="card kpi">
-                    <span class="kpi-label">Concluídos</span>
-                    <div class="kpi-value green"
-                         id="projectCompleted">
-                        0
-                    </div>
-                </div>
-
-                <div class="card kpi">
-                    <span class="kpi-label">Atrasados</span>
-                    <div class="kpi-value red"
-                         id="projectLate">
-                        0
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="card" style="margin-top:15px;">
-
-                <div class="table-wrap">
-
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Projeto</th>
-                                <th>Negócio</th>
-                                <th>Status</th>
-                                <th>Prioridade</th>
-                                <th>Prazo</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="projectTable"></tbody>
-
-                    </table>
+                    <div class="tank-info">META</div>
 
                 </div>
 
             </div>
 
-        </section>
+            <div class="tank-desc">
+                Base total de clientes
+            </div>
+
+        </div>
 
 
-        <!-- PESSOAS -->
+        <!-- NOVOS CLIENTES -->
 
-        <section class="page" id="people">
+        <div class="tank-card">
 
-            <div class="section-header">
+            <div class="tank-head">
 
                 <div>
-                    <h2>Pessoas</h2>
-                    <p>Equipe e colaboradores</p>
+                    <div class="tank-title">Novos Clientes</div>
+                    <div class="tank-value" id="kpiNewClients">0</div>
                 </div>
 
-                <button class="btn btn-primary"
-                        onclick="openPersonModal()">
-                    + Pessoa
-                </button>
+                <div class="tank-percent" id="pctNewClients">0%</div>
 
             </div>
 
-            <div class="card">
+            <div class="tank-area">
 
-                <div class="table-wrap">
+                <div class="tank">
 
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Cargo</th>
-                                <th>Área</th>
-                                <th>Status</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="peopleTable"></tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- GOALS -->
-
-        <section class="page" id="goals">
-
-            <div class="section-header">
-
-                <div>
-                    <h2>Metas / OKRs</h2>
-                    <p>Objetivos estratégicos</p>
-                </div>
-
-                <button class="btn btn-primary"
-                        onclick="openGoalModal()">
-                    + Meta
-                </button>
-
-            </div>
-
-            <div id="goalCards"
-                 class="plan-grid"></div>
-
-        </section>
-
-
-        <!-- PLANEJAMENTO -->
-
-        <section class="page" id="planning">
-
-            <div class="section-header">
-
-                <div>
-                    <h2>Planejamento</h2>
-                    <p>Direção estratégica anual</p>
-                </div>
-
-                <button class="btn btn-primary"
-                        onclick="savePlanning()">
-                    Salvar planejamento
-                </button>
-
-            </div>
-
-            <div class="plan-grid">
-
-                <div class="card plan-card">
-
-                    <h3>Meta de faturamento anual</h3>
-
-                    <div class="big blue">
-                        <input
-                            id="planningRevenue"
-                            type="number"
-                            step="0.01"
-                            style="font-size:25px;font-weight:700;"
-                        >
+                    <div class="water blue" id="tankNewClients">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
                     </div>
 
-                    <p>
-                        Valor que o grupo pretende faturar no ano.
-                    </p>
+                    <div class="tank-center" id="tankNewClientsPct">0%</div>
 
-                </div>
-
-                <div class="card plan-card">
-
-                    <h3>Meta de clientes</h3>
-
-                    <div class="big cyan">
-                        <input
-                            id="planningClients"
-                            type="number"
-                            style="font-size:25px;font-weight:700;"
-                        >
-                    </div>
-
-                    <p>
-                        Quantidade de clientes desejada.
-                    </p>
-
-                </div>
-
-                <div class="card plan-card">
-
-                    <h3>Ano do planejamento</h3>
-
-                    <div class="big purple">
-                        <span id="planningYear"></span>
-                    </div>
-
-                    <p>
-                        O QG acompanha a evolução anual.
-                    </p>
+                    <div class="tank-info">META</div>
 
                 </div>
 
             </div>
 
-            <div class="card" style="margin-top:15px;">
-
-                <div class="card-title">
-                    <h3>Resumo estratégico</h3>
-                    <span>Meta anual</span>
-                </div>
-
-                <div id="planningSummary"></div>
-
+            <div class="tank-desc">
+                Aquisição de clientes
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- DOCUMENTS -->
+        <!-- TICKET -->
 
-        <section class="page" id="documents">
+        <div class="tank-card">
 
-            <div class="section-header">
+            <div class="tank-head">
 
                 <div>
-                    <h2>Documentos</h2>
-                    <p>Central documental do QG</p>
+                    <div class="tank-title">Ticket Médio</div>
+                    <div class="tank-value" id="kpiTicket">R$ 0,00</div>
                 </div>
 
-                <button class="btn btn-primary"
-                        onclick="openDocumentModal()">
-                    + Documento
-                </button>
+                <div class="tank-percent" id="pctTicket">0%</div>
 
             </div>
 
-            <div class="card">
+            <div class="tank-area">
 
-                <div class="table-wrap">
+                <div class="tank">
 
-                    <table>
+                    <div class="water yellow" id="tankTicket">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
 
-                        <thead>
-                            <tr>
-                                <th>Documento</th>
-                                <th>Categoria</th>
-                                <th>Descrição</th>
-                                <th>Data</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
+                    <div class="tank-center" id="tankTicketPct">0%</div>
 
-                        <tbody id="documentTable"></tbody>
-
-                    </table>
+                    <div class="tank-info">OBJETIVO</div>
 
                 </div>
 
             </div>
 
-        </section>
+            <div class="tank-desc">
+                Faturamento por cliente
+            </div>
+
+        </div>
+
+
+        <!-- NEGÓCIOS -->
+
+        <div class="tank-card">
+
+            <div class="tank-head">
+
+                <div>
+                    <div class="tank-title">Negócios</div>
+                    <div class="tank-value" id="kpiBusinesses">0</div>
+                </div>
+
+                <div class="tank-percent" id="pctBusinesses">0%</div>
+
+            </div>
+
+            <div class="tank-area">
+
+                <div class="tank">
+
+                    <div class="water green" id="tankBusinesses">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+
+                    <div class="tank-center" id="tankBusinessesPct">0%</div>
+
+                    <div class="tank-info">ATIVOS</div>
+
+                </div>
+
+            </div>
+
+            <div class="tank-desc">
+                Portfólio empresarial
+            </div>
+
+        </div>
 
     </div>
 
-</main>
 
-</div>
+    <!-- GRÁFICO + META -->
+
+    <div class="dashboard-grid">
+
+        <div class="panel chart-panel">
+
+            <div class="panel-title">
+                Faturamento x Despesas
+            </div>
+
+            <div class="panel-sub">
+                Visão anual por mês
+            </div>
+
+            <canvas id="revenueChart"></canvas>
+
+        </div>
 
 
-<!-- MODAL NEGÓCIO -->
+        <div class="panel goal-panel">
 
-<div class="modal" id="businessModal">
+            <div class="panel-title">
+                Meta Anual
+            </div>
 
-<div class="modal-box">
+            <div class="panel-sub">
+                Progresso do faturamento
+            </div>
 
-    <div class="modal-header">
-        <h3 id="businessModalTitle">Novo negócio</h3>
-        <button class="close"
-                onclick="closeModal('businessModal')">
-            ×
+            <div class="goal-content">
+
+                <div class="big-tank">
+
+                    <div class="big-water" id="bigGoalWater"></div>
+
+                </div>
+
+                <div class="goal-data">
+
+                    <div class="goal-percent" id="goalPercent">
+                        0%
+                    </div>
+
+                    <p>
+                        da meta anual atingida
+                    </p>
+
+                    <div class="goal-line">
+                        <span>Realizado</span>
+                        <strong id="goalRealized">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div class="goal-line">
+                        <span>Meta anual</span>
+                        <strong id="goalTarget">
+                            R$ 500.000,00
+                        </strong>
+                    </div>
+
+                    <div class="goal-line">
+                        <span>Restante</span>
+                        <strong id="goalRemaining">
+                            R$ 500.000,00
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SAÚDE / OPERAÇÃO / COMERCIAL -->
+
+    <div class="lower-grid">
+
+        <div class="panel">
+
+            <div class="panel-title">
+                Saúde Financeira
+            </div>
+
+            <div class="panel-sub">
+                Indicadores principais
+            </div>
+
+            <div class="health-item">
+
+                <div class="health-label">
+                    <span>Margem operacional</span>
+                    <strong id="healthMargin">0%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill green-fill"
+                         id="healthMarginBar"
+                         style="width:0%">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="health-item">
+
+                <div class="health-label">
+                    <span>Despesas / Receita</span>
+                    <strong id="healthExpense">0%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill red-fill"
+                         id="healthExpenseBar"
+                         style="width:0%">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="health-item">
+
+                <div class="health-label">
+                    <span>Resultado operacional</span>
+                    <strong id="healthProfit">R$ 0,00</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill blue-fill"
+                         id="healthProfitBar"
+                         style="width:0%">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-title">
+                Funil Comercial
+            </div>
+
+            <div class="panel-sub">
+                Visão atual de clientes
+            </div>
+
+            <div class="metric-row">
+                <span>Clientes</span>
+                <strong id="funnelClients">0</strong>
+            </div>
+
+            <div class="metric-row">
+                <span>Novos</span>
+                <strong id="funnelNew">0</strong>
+            </div>
+
+            <div class="metric-row">
+                <span>Clientes ativos</span>
+                <strong id="funnelActive">0</strong>
+            </div>
+
+            <div class="metric-row">
+                <span>Ticket médio</span>
+                <strong id="funnelTicket">R$ 0,00</strong>
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-title">
+                Operação
+            </div>
+
+            <div class="panel-sub">
+                Status operacional
+            </div>
+
+            <div class="metric-row">
+                <span>Negócios ativos</span>
+                <strong id="opBusinesses">0</strong>
+            </div>
+
+            <div class="metric-row">
+                <span>Projetos</span>
+                <strong id="opProjects">0</strong>
+            </div>
+
+            <div class="metric-row">
+                <span>Projetos em andamento</span>
+                <strong id="opProgress">0</strong>
+            </div>
+
+            <div class="metric-row">
+                <span>Projetos concluídos</span>
+                <strong id="opCompleted">0</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEGÓCIOS -->
+
+<section id="businesses" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Negócios</h1>
+            <p>Gerencie todas as empresas e operações</p>
+        </div>
+
+        <button class="primary" onclick="openBusinessModal()">
+            + Novo negócio
         </button>
+
     </div>
 
-    <form onsubmit="saveBusiness(event)">
+    <div class="table-panel">
 
-        <input type="hidden" id="businessId">
+        <div class="table-head">
+
+            <strong>Portfólio empresarial</strong>
+
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Negócio</th>
+                    <th>Categoria</th>
+                    <th>Meta</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="businessTable"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- FINANCEIRO -->
+
+<section id="finance" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Financeiro</h1>
+            <p>Controle de receitas e despesas</p>
+        </div>
+
+        <button class="primary" onclick="openTransactionModal()">
+            + Lançamento
+        </button>
+
+    </div>
+
+    <div class="table-panel">
+
+        <div class="table-head">
+            <strong>Lançamentos</strong>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Valor</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="financeTable"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- CLIENTES -->
+
+<section id="clients" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Clientes</h1>
+            <p>Base de clientes do grupo</p>
+        </div>
+
+        <button class="primary" onclick="openClientModal()">
+            + Novo cliente
+        </button>
+
+    </div>
+
+    <div class="table-panel">
+
+        <div class="table-head">
+            <strong>Clientes cadastrados</strong>
+        </div>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Empresa</th>
+                    <th>Data</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody id="clientTable"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+<!-- PROJETOS -->
+
+<section id="projects" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Projetos</h1>
+            <p>Projetos e operações em andamento</p>
+        </div>
+
+        <button class="primary" onclick="openProjectModal()">
+            + Novo projeto
+        </button>
+
+    </div>
+
+    <div class="cards" id="projectCards"></div>
+
+</section>
+
+
+<!-- PESSOAS -->
+
+<section id="people" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Pessoas</h1>
+            <p>Equipe e colaboradores</p>
+        </div>
+
+        <button class="primary" onclick="openPersonModal()">
+            + Pessoa
+        </button>
+
+    </div>
+
+    <div class="cards" id="peopleCards"></div>
+
+</section>
+
+
+<!-- METAS -->
+
+<section id="goals" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Metas</h1>
+            <p>Objetivos estratégicos</p>
+        </div>
+
+        <button class="primary" onclick="openGoalModal()">
+            + Nova meta
+        </button>
+
+    </div>
+
+    <div class="cards" id="goalCards"></div>
+
+</section>
+
+
+<!-- PLANEJAMENTO -->
+
+<section id="planning" class="page">
+
+    <div class="page-header">
+
+        <div>
+            <h1>Planejamento</h1>
+            <p>Direcionamento anual da empresa</p>
+        </div>
+
+    </div>
+
+    <div class="panel">
 
         <div class="form-grid">
 
-            <div class="form-group full">
-                <label>Nome do negócio</label>
-                <input id="businessName" required>
-            </div>
-
             <div class="form-group">
-                <label>Categoria</label>
-                <input id="businessCategory"
-                       placeholder="Tecnologia, educação...">
-            </div>
 
-            <div class="form-group">
                 <label>Meta de faturamento anual</label>
-                <input id="businessGoal"
-                       type="number"
-                       step="0.01">
+
+                <input
+                    type="number"
+                    id="annualGoalInput"
+                    step="0.01"
+                >
+
             </div>
 
-            <div class="form-group full">
+            <div class="form-group">
 
-                <label>Status</label>
+                <label>Meta de clientes anual</label>
 
-                <select id="businessStatus">
-
-                    <option value="Ativo">Ativo</option>
-                    <option value="Planejamento">Planejamento</option>
-                    <option value="Pausado">Pausado</option>
-                    <option value="Encerrado">Encerrado</option>
-
-                </select>
+                <input
+                    type="number"
+                    id="clientGoalInput"
+                >
 
             </div>
 
         </div>
 
-        <div class="modal-footer">
+        <div style="margin-top:18px">
 
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('businessModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
+            <button class="primary" onclick="savePlanning()">
+                Salvar planejamento
             </button>
 
         </div>
 
-    </form>
-
-</div>
-
-</div>
-
-
-<!-- MODAL TRANSAÇÃO -->
-
-<div class="modal" id="transactionModal">
-
-<div class="modal-box">
-
-    <div class="modal-header">
-        <h3>Lançamento financeiro</h3>
-
-        <button class="close"
-                onclick="closeModal('transactionModal')">
-            ×
-        </button>
     </div>
 
-    <form onsubmit="saveTransaction(event)">
+</section>
 
-        <input type="hidden" id="transactionId">
 
-        <div class="form-grid">
+<!-- DOCUMENTOS -->
 
-            <div class="form-group">
-                <label>Descrição</label>
-                <input id="transactionDescription" required>
-            </div>
+<section id="documents" class="page">
 
-            <div class="form-group">
-                <label>Valor</label>
-                <input id="transactionValue"
-                       type="number"
-                       step="0.01"
-                       required>
-            </div>
+    <div class="page-header">
 
-            <div class="form-group">
-                <label>Tipo</label>
-
-                <select id="transactionType">
-
-                    <option value="receita">Receita</option>
-                    <option value="despesa">Despesa</option>
-
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label>Categoria</label>
-                <input id="transactionCategory"
-                       placeholder="Venda, servidor, marketing...">
-            </div>
-
-            <div class="form-group">
-                <label>Data</label>
-                <input id="transactionDate"
-                       type="date"
-                       required>
-            </div>
-
-            <div class="form-group">
-                <label>Negócio</label>
-
-                <select id="transactionBusiness">
-                    <option value="">Geral</option>
-                </select>
-
-            </div>
-
+        <div>
+            <h1>Documentos</h1>
+            <p>Central de documentos</p>
         </div>
 
-        <div class="modal-footer">
-
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('transactionModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
-
-</div>
-
-
-<!-- MODAL CLIENTE -->
-
-<div class="modal" id="clientModal">
-
-<div class="modal-box">
-
-    <div class="modal-header">
-        <h3>Cliente</h3>
-
-        <button class="close"
-                onclick="closeModal('clientModal')">
-            ×
-        </button>
-    </div>
-
-    <form onsubmit="saveClient(event)">
-
-        <input type="hidden" id="clientId">
-
-        <div class="form-grid">
-
-            <div class="form-group">
-                <label>Nome</label>
-                <input id="clientName" required>
-            </div>
-
-            <div class="form-group">
-                <label>Empresa</label>
-                <input id="clientCompany">
-            </div>
-
-            <div class="form-group">
-                <label>Status</label>
-
-                <select id="clientStatus">
-
-                    <option value="Lead">Lead</option>
-                    <option value="Contato">Contato</option>
-                    <option value="Proposta">Proposta</option>
-                    <option value="Ativo">Ativo</option>
-                    <option value="Inativo">Inativo</option>
-
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label>Valor potencial</label>
-                <input id="clientValue"
-                       type="number"
-                       step="0.01">
-            </div>
-
-            <div class="form-group full">
-                <label>Data de cadastro</label>
-                <input id="clientDate"
-                       type="date"
-                       required>
-            </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('clientModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
-
-</div>
-
-
-<!-- MODAL PROJETO -->
-
-<div class="modal" id="projectModal">
-
-<div class="modal-box">
-
-    <div class="modal-header">
-
-        <h3>Projeto</h3>
-
-        <button class="close"
-                onclick="closeModal('projectModal')">
-            ×
+        <button class="primary" onclick="openDocumentModal()">
+            + Documento
         </button>
 
     </div>
 
-    <form onsubmit="saveProject(event)">
+    <div class="cards" id="documentCards"></div>
 
-        <input type="hidden" id="projectId">
-
-        <div class="form-grid">
-
-            <div class="form-group full">
-                <label>Projeto</label>
-                <input id="projectName" required>
-            </div>
-
-            <div class="form-group">
-                <label>Negócio</label>
-                <select id="projectBusiness">
-                    <option value="">Geral</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label>Status</label>
-
-                <select id="projectStatus">
-
-                    <option value="Planejamento">Planejamento</option>
-                    <option value="Em andamento">Em andamento</option>
-                    <option value="Concluído">Concluído</option>
-                    <option value="Pausado">Pausado</option>
-
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label>Prioridade</label>
-
-                <select id="projectPriority">
-
-                    <option value="Baixa">Baixa</option>
-                    <option value="Média">Média</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Crítica">Crítica</option>
-
-                </select>
-
-            </div>
-
-            <div class="form-group">
-                <label>Prazo</label>
-                <input id="projectDeadline"
-                       type="date"
-                       required>
-            </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('projectModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
-            </button>
-
-        </div>
-
-    </form>
+</section>
 
 </div>
-
+</main>
 </div>
 
 
-<!-- MODAL PESSOA -->
+<!-- MODAL -->
 
-<div class="modal" id="personModal">
+<div class="modal-bg" id="modalBg">
 
-<div class="modal-box">
-
-    <div class="modal-header">
-
-        <h3>Pessoa</h3>
-
-        <button class="close"
-                onclick="closeModal('personModal')">
-            ×
-        </button>
-
-    </div>
-
-    <form onsubmit="savePerson(event)">
-
-        <input type="hidden" id="personId">
-
-        <div class="form-grid">
-
-            <div class="form-group">
-                <label>Nome</label>
-                <input id="personName" required>
-            </div>
-
-            <div class="form-group">
-                <label>Cargo</label>
-                <input id="personRole">
-            </div>
-
-            <div class="form-group">
-                <label>Área</label>
-                <input id="personArea">
-            </div>
-
-            <div class="form-group">
-                <label>Status</label>
-
-                <select id="personStatus">
-                    <option value="Ativo">Ativo</option>
-                    <option value="Férias">Férias</option>
-                    <option value="Inativo">Inativo</option>
-                </select>
-
-            </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('personModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
-
-</div>
-
-
-<!-- MODAL META -->
-
-<div class="modal" id="goalModal">
-
-<div class="modal-box">
-
-    <div class="modal-header">
-
-        <h3>Meta / OKR</h3>
-
-        <button class="close"
-                onclick="closeModal('goalModal')">
-            ×
-        </button>
-
-    </div>
-
-    <form onsubmit="saveGoal(event)">
-
-        <input type="hidden" id="goalId">
-
-        <div class="form-grid">
-
-            <div class="form-group full">
-                <label>Objetivo</label>
-                <input id="goalName" required>
-            </div>
-
-            <div class="form-group">
-                <label>Meta</label>
-                <input id="goalTarget"
-                       type="number"
-                       step="0.01">
-            </div>
-
-            <div class="form-group">
-                <label>Realizado</label>
-                <input id="goalCurrent"
-                       type="number"
-                       step="0.01">
-            </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('goalModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
-
-</div>
-
-
-<!-- MODAL DOCUMENTO -->
-
-<div class="modal" id="documentModal">
-
-<div class="modal-box">
-
-    <div class="modal-header">
-
-        <h3>Documento</h3>
-
-        <button class="close"
-                onclick="closeModal('documentModal')">
-            ×
-        </button>
-
-    </div>
-
-    <form onsubmit="saveDocument(event)">
-
-        <input type="hidden" id="documentId">
-
-        <div class="form-grid">
-
-            <div class="form-group full">
-                <label>Nome</label>
-                <input id="documentName" required>
-            </div>
-
-            <div class="form-group">
-                <label>Categoria</label>
-                <input id="documentCategory">
-            </div>
-
-            <div class="form-group">
-                <label>Data</label>
-                <input id="documentDate"
-                       type="date"
-                       required>
-            </div>
-
-            <div class="form-group full">
-                <label>Descrição</label>
-                <textarea id="documentDescription"></textarea>
-            </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-            <button type="button"
-                    class="btn"
-                    onclick="closeModal('documentModal')">
-                Cancelar
-            </button>
-
-            <button class="btn btn-primary">
-                Salvar
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
+    <div class="modal" id="modalContent"></div>
 
 </div>
 
@@ -2468,61 +1811,32 @@ textarea{
 <script>
 
 /* =========================================================
-   QG EMPRESARIAL
-   LOCALSTORAGE
+   BANCO LOCAL
 ========================================================= */
 
 const STORAGE_KEY = "qg_empresarial_v4";
 
 let db = {
-    businesses: [],
-    transactions: [],
-    clients: [],
-    projects: [],
-    people: [],
-    goals: [],
-    documents: [],
-    planning: {
-        annualRevenueGoal: 500000,
-        clientGoal: 1000
+    businesses:[],
+    transactions:[],
+    clients:[],
+    projects:[],
+    people:[],
+    goals:[],
+    documents:[],
+    planning:{
+        annualRevenueGoal:500000,
+        clientGoal:1000
     }
 };
 
 
 /* =========================================================
-   UTILITÁRIOS
+   STORAGE
 ========================================================= */
 
-function uid(){
-    return Date.now().toString(36) +
-           Math.random().toString(36).substring(2,8);
-}
-
-function money(value){
-    return Number(value || 0).toLocaleString("pt-BR",{
-        style:"currency",
-        currency:"BRL"
-    });
-}
-
-function number(value){
-    return Number(value || 0).toLocaleString("pt-BR");
-}
-
-function today(){
-    return new Date().toISOString().split("T")[0];
-}
-
-function escapeHTML(value){
-    return String(value ?? "")
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
-}
-
 function saveDB(){
+
     localStorage.setItem(
         STORAGE_KEY,
         JSON.stringify(db)
@@ -2531,6 +1845,7 @@ function saveDB(){
     renderAll();
 }
 
+
 function loadDB(){
 
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -2538,34 +1853,63 @@ function loadDB(){
     if(saved){
 
         try{
+
             db = JSON.parse(saved);
-        }catch(error){
-            console.error(error);
+
+        }catch(e){
+
+            console.error(e);
+
         }
 
     }
 
-    ensureDB();
+}
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function money(value){
+
+    return Number(value || 0).toLocaleString(
+        "pt-BR",
+        {
+            style:"currency",
+            currency:"BRL"
+        }
+    );
 
 }
 
-function ensureDB(){
 
-    db.businesses ||= [];
-    db.transactions ||= [];
-    db.clients ||= [];
-    db.projects ||= [];
-    db.people ||= [];
-    db.goals ||= [];
-    db.documents ||= [];
+function percent(value){
 
-    db.planning ||= {
-        annualRevenueGoal:500000,
-        clientGoal:1000
-    };
+    if(!isFinite(value)) return "0%";
 
-    db.planning.annualRevenueGoal ??= 500000;
-    db.planning.clientGoal ??= 1000;
+    return Math.round(value) + "%";
+
+}
+
+
+function uid(){
+
+    return Date.now().toString(36) +
+           Math.random().toString(36).substring(2,8);
+
+}
+
+
+function escapeHTML(str){
+
+    return String(str || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
 }
 
 
@@ -2573,94 +1917,85 @@ function ensureDB(){
    NAVEGAÇÃO
 ========================================================= */
 
-const pageNames = {
-
-    dashboard:{
-        title:"Dashboard Executivo",
-        subtitle:"Visão geral do seu grupo empresarial"
-    },
-
-    businesses:{
-        title:"Negócios",
-        subtitle:"Empresas e operações"
-    },
-
-    finance:{
-        title:"Financeiro",
-        subtitle:"Receitas, despesas e resultado operacional"
-    },
-
-    clients:{
-        title:"Clientes",
-        subtitle:"Base comercial e relacionamento"
-    },
-
-    projects:{
-        title:"Projetos",
-        subtitle:"Operação e execução"
-    },
-
-    people:{
-        title:"Pessoas",
-        subtitle:"Equipe e colaboradores"
-    },
-
-    goals:{
-        title:"Metas / OKRs",
-        subtitle:"Objetivos estratégicos"
-    },
-
-    planning:{
-        title:"Planejamento",
-        subtitle:"Direção estratégica anual"
-    },
-
-    documents:{
-        title:"Documentos",
-        subtitle:"Central documental"
-    }
-
-};
-
-function showPage(page, button){
+function navigate(page,button){
 
     document.querySelectorAll(".page")
-        .forEach(el => el.classList.remove("active"));
+        .forEach(el=>el.classList.remove("active"));
 
-    const target = document.getElementById(page);
+    document.getElementById(page)
+        .classList.add("active");
 
-    if(target){
-        target.classList.add("active");
-    }
-
-    document.querySelectorAll(".nav-item")
-        .forEach(el => el.classList.remove("active"));
+    document.querySelectorAll(".menu button")
+        .forEach(el=>el.classList.remove("active"));
 
     if(button){
+
         button.classList.add("active");
-    }
-
-    const info = pageNames[page];
-
-    if(info){
-
-        document.getElementById("pageTitle").textContent =
-            info.title;
-
-        document.getElementById("pageSubtitle").textContent =
-            info.subtitle;
 
     }
 
-    document.getElementById("sidebar")
-        .classList.remove("open");
+    const titles = {
 
-    renderAll();
+        dashboard:["Dashboard Executivo","Visão geral do seu grupo empresarial"],
+
+        businesses:["Negócios","Gestão do portfólio empresarial"],
+
+        finance:["Financeiro","Controle financeiro"],
+
+        clients:["Clientes","Gestão da base de clientes"],
+
+        projects:["Projetos","Controle operacional"],
+
+        people:["Pessoas","Equipe e colaboradores"],
+
+        goals:["Metas","Objetivos estratégicos"],
+
+        planning:["Planejamento","Planejamento anual"],
+
+        documents:["Documentos","Central de documentos"]
+
+    };
+
+    document.getElementById("topTitle").textContent =
+        titles[page][0];
+
+    document.getElementById("topSub").textContent =
+        titles[page][1];
+
 }
 
-function toggleSidebar(){
-    document.getElementById("sidebar")
-        .classList.toggle("open");
+
+/* =========================================================
+   CÁLCULOS
+========================================================= */
+
+function getYearTransactions(){
+
+    const year = new Date().getFullYear();
+
+    return db.transactions.filter(t=>{
+
+        const date = new Date(t.date);
+
+        return date.getFullYear() === year;
+
+    });
+
+}
+
+
+function getYearClients(){
+
+    const year = new Date().getFullYear();
+
+    return db.clients.filter(c=>{
+
+        const date = new Date(c.date);
+
+        return date.getFullYear() === year;
+
+    });
+
 }
 
 
@@ -2668,262 +2003,339 @@ function toggleSidebar(){
    DASHBOARD
 ========================================================= */
 
-function getFinancialTotals(){
-
-    let revenue = 0;
-    let expenses = 0;
-
-    db.transactions.forEach(t => {
-
-        const value = Number(t.value || 0);
-
-        if(t.type === "receita"){
-            revenue += value;
-        }
-
-        if(t.type === "despesa"){
-            expenses += value;
-        }
-
-    });
-
-    return {
-        revenue,
-        expenses,
-        result: revenue - expenses
-    };
-}
-
 function renderDashboard(){
 
-    const financial = getFinancialTotals();
+    const transactions = getYearTransactions();
 
-    const revenue = financial.revenue;
-    const expenses = financial.expenses;
-    const result = financial.result;
+    const clients = db.clients;
+
+    const revenue = transactions
+        .filter(t=>t.type==="receita")
+        .reduce((a,b)=>a+Number(b.value),0);
+
+    const expenses = transactions
+        .filter(t=>t.type==="despesa")
+        .reduce((a,b)=>a+Number(b.value),0);
+
+    const profit = revenue - expenses;
 
     const margin =
         revenue > 0
-            ? (result / revenue) * 100
-            : 0;
+        ? (profit/revenue)*100
+        : 0;
 
-    const clients = db.clients.length;
-
-    const currentMonth =
-        new Date().getMonth();
-
-    const currentYear =
-        new Date().getFullYear();
+    const activeClients = clients.filter(
+        c=>c.status==="Ativo"
+    ).length;
 
     const newClients =
-        db.clients.filter(c => {
-
-            if(!c.date) return false;
-
-            const d = new Date(c.date);
-
-            return d.getMonth() === currentMonth &&
-                   d.getFullYear() === currentYear;
-
-        }).length;
+        getYearClients().length;
 
     const ticket =
-        clients > 0
-            ? revenue / clients
-            : 0;
+        activeClients > 0
+        ? revenue / activeClients
+        : 0;
 
-    document.getElementById("kpiRevenue").textContent =
-        money(revenue);
+    const businesses =
+        db.businesses.length;
 
-    document.getElementById("kpiExpenses").textContent =
-        money(expenses);
-
-    document.getElementById("kpiProfit").textContent =
-        money(result);
-
-    document.getElementById("kpiMargin").textContent =
-        margin.toFixed(1) + "%";
-
-    document.getElementById("kpiClients").textContent =
-        number(clients);
-
-    document.getElementById("kpiNewClients").textContent =
-        number(newClients);
-
-    document.getElementById("kpiTicket").textContent =
-        money(ticket);
-
-    document.getElementById("kpiBusinesses").textContent =
-        number(db.businesses.length);
+    const activeBusinesses =
+        db.businesses.filter(
+            b=>b.status==="Ativo"
+        ).length;
 
 
-    /* META ANUAL */
+    /* ==========================
+       METAS
+    ========================== */
 
-    const annualGoal =
+    const revenueGoal =
         Number(db.planning.annualRevenueGoal || 0);
 
-    const percent =
-        annualGoal > 0
-            ? (revenue / annualGoal) * 100
-            : 0;
+    const clientGoal =
+        Number(db.planning.clientGoal || 0);
 
-    const visualPercent =
-        Math.min(percent,100);
+    const revenueProgress =
+        revenueGoal > 0
+        ? (revenue/revenueGoal)*100
+        : 0;
 
-    const remaining =
-        Math.max(annualGoal - revenue,0);
-
-    document.getElementById("goalPercent").textContent =
-        percent.toFixed(1) + "%";
-
-    document.getElementById("goalRevenue").textContent =
-        money(revenue);
-
-    document.getElementById("goalTarget").textContent =
-        money(annualGoal);
-
-    document.getElementById("goalRemaining").textContent =
-        money(remaining);
-
-    document.getElementById("tankLiquid").style.height =
-        visualPercent + "%";
+    const clientProgress =
+        clientGoal > 0
+        ? (activeClients/clientGoal)*100
+        : 0;
 
 
-    /* SAÚDE */
+    /*
+       Objetivos auxiliares para os tanques
+    */
+
+    const expenseLimit =
+        revenueGoal * 0.30;
+
+    const expenseProgress =
+        expenseLimit > 0
+        ? (expenses/expenseLimit)*100
+        : 0;
+
+    const profitProgress =
+        revenueGoal > 0
+        ? (profit/revenueGoal)*100
+        : 0;
+
+    const marginProgress =
+        Math.max(0,Math.min(100,margin));
+
+    const newClientGoal =
+        Math.max(10,Math.ceil(clientGoal * 0.20));
+
+    const newClientProgress =
+        newClientGoal > 0
+        ? (newClients/newClientGoal)*100
+        : 0;
+
+    const ticketGoal = 500;
+
+    const ticketProgress =
+        ticketGoal > 0
+        ? (ticket/ticketGoal)*100
+        : 0;
+
+    const businessProgress =
+        businesses > 0
+        ? (activeBusinesses/businesses)*100
+        : 0;
+
+
+    /* ==========================
+       TEXTOS
+    ========================== */
+
+    document.getElementById("kpiRevenue")
+        .textContent = money(revenue);
+
+    document.getElementById("kpiExpenses")
+        .textContent = money(expenses);
+
+    document.getElementById("kpiProfit")
+        .textContent = money(profit);
+
+    document.getElementById("kpiMargin")
+        .textContent = margin.toFixed(1)+"%";
+
+    document.getElementById("kpiClients")
+        .textContent = activeClients;
+
+    document.getElementById("kpiNewClients")
+        .textContent = newClients;
+
+    document.getElementById("kpiTicket")
+        .textContent = money(ticket);
+
+    document.getElementById("kpiBusinesses")
+        .textContent = businesses;
+
+
+    /* ==========================
+       TANQUES
+    ========================== */
+
+    setTank(
+        "tankRevenue",
+        "tankRevenuePct",
+        "pctRevenue",
+        revenueProgress
+    );
+
+    setTank(
+        "tankExpenses",
+        "tankExpensesPct",
+        "pctExpenses",
+        expenseProgress
+    );
+
+    setTank(
+        "tankProfit",
+        "tankProfitPct",
+        "pctProfit",
+        profitProgress
+    );
+
+    setTank(
+        "tankMargin",
+        "tankMarginPct",
+        "pctMargin",
+        marginProgress
+    );
+
+    setTank(
+        "tankClients",
+        "tankClientsPct",
+        "pctClients",
+        clientProgress
+    );
+
+    setTank(
+        "tankNewClients",
+        "tankNewClientsPct",
+        "pctNewClients",
+        newClientProgress
+    );
+
+    setTank(
+        "tankTicket",
+        "tankTicketPct",
+        "pctTicket",
+        ticketProgress
+    );
+
+    setTank(
+        "tankBusinesses",
+        "tankBusinessesPct",
+        "pctBusinesses",
+        businessProgress
+    );
+
+
+    /* ==========================
+       META ANUAL
+    ========================== */
+
+    const goalPct =
+        Math.min(100,Math.max(0,revenueProgress));
+
+    document.getElementById("bigGoalWater")
+        .style.height = goalPct+"%";
+
+    document.getElementById("goalPercent")
+        .textContent = goalPct.toFixed(1)+"%";
+
+    document.getElementById("goalRealized")
+        .textContent = money(revenue);
+
+    document.getElementById("goalTarget")
+        .textContent = money(revenueGoal);
+
+    document.getElementById("goalRemaining")
+        .textContent =
+        money(Math.max(0,revenueGoal-revenue));
+
+
+    /* ==========================
+       SAÚDE
+    ========================== */
 
     const expenseRatio =
         revenue > 0
-            ? (expenses / revenue) * 100
-            : 0;
+        ? (expenses/revenue)*100
+        : 0;
 
-    const marginVisual =
-        Math.max(0,Math.min(margin,100));
+    document.getElementById("healthMargin")
+        .textContent = margin.toFixed(1)+"%";
 
-    const expenseVisual =
-        Math.max(0,Math.min(expenseRatio,100));
+    document.getElementById("healthMarginBar")
+        .style.width =
+        Math.min(100,Math.max(0,margin))+"%";
 
-    const resultVisual =
-        revenue > 0
-            ? Math.max(0,Math.min((result/revenue)*100,100))
-            : 0;
+    document.getElementById("healthExpense")
+        .textContent =
+        expenseRatio.toFixed(1)+"%";
 
-    const cash =
-        result;
+    document.getElementById("healthExpenseBar")
+        .style.width =
+        Math.min(100,expenseRatio)+"%";
 
-    const cashVisual =
-        annualGoal > 0
-            ? Math.max(0,Math.min((Math.max(cash,0)/annualGoal)*100,100))
-            : 0;
+    document.getElementById("healthProfit")
+        .textContent =
+        money(profit);
 
-    document.getElementById("healthMargin").textContent =
-        margin.toFixed(1) + "%";
-
-    document.getElementById("healthMarginBar").style.width =
-        marginVisual + "%";
-
-    document.getElementById("healthExpense").textContent =
-        expenseRatio.toFixed(1) + "%";
-
-    document.getElementById("healthExpenseBar").style.width =
-        expenseVisual + "%";
-
-    document.getElementById("healthResult").textContent =
-        money(result);
-
-    document.getElementById("healthResultBar").style.width =
-        resultVisual + "%";
-
-    document.getElementById("healthCash").textContent =
-        money(cash);
-
-    document.getElementById("healthCashBar").style.width =
-        cashVisual + "%";
+    document.getElementById("healthProfitBar")
+        .style.width =
+        Math.min(
+            100,
+            Math.max(0,profitProgress)
+        )+"%";
 
 
-    /* FUNIL */
+    /* ==========================
+       FUNIL
+    ========================== */
 
-    const leads =
-        db.clients.filter(c => c.status === "Lead").length;
+    document.getElementById("funnelClients")
+        .textContent = clients.length;
 
-    const contacts =
-        db.clients.filter(c => c.status === "Contato").length;
+    document.getElementById("funnelNew")
+        .textContent = newClients;
 
-    const proposals =
-        db.clients.filter(c => c.status === "Proposta").length;
+    document.getElementById("funnelActive")
+        .textContent = activeClients;
 
-    const active =
-        db.clients.filter(c => c.status === "Ativo").length;
-
-    const maxFunnel =
-        Math.max(leads,contacts,proposals,active,1);
-
-    document.getElementById("funnelLeadValue").textContent =
-        leads;
-
-    document.getElementById("funnelContactValue").textContent =
-        contacts;
-
-    document.getElementById("funnelProposalValue").textContent =
-        proposals;
-
-    document.getElementById("funnelClientValue").textContent =
-        active;
-
-    document.getElementById("funnelLeads").style.width =
-        ((leads/maxFunnel)*100) + "%";
-
-    document.getElementById("funnelContacts").style.width =
-        ((contacts/maxFunnel)*100) + "%";
-
-    document.getElementById("funnelProposals").style.width =
-        ((proposals/maxFunnel)*100) + "%";
-
-    document.getElementById("funnelClients").style.width =
-        ((active/maxFunnel)*100) + "%";
+    document.getElementById("funnelTicket")
+        .textContent = money(ticket);
 
 
-    /* OPERAÇÃO */
+    /* ==========================
+       OPERAÇÃO
+    ========================== */
+
+    const projects =
+        db.projects;
 
     const progress =
-        db.projects.filter(
-            p => p.status === "Em andamento"
+        projects.filter(
+            p=>p.status==="Em andamento"
         ).length;
 
     const completed =
-        db.projects.filter(
-            p => p.status === "Concluído"
+        projects.filter(
+            p=>p.status==="Concluído"
         ).length;
 
-    const late =
-        db.projects.filter(p => {
+    document.getElementById("opBusinesses")
+        .textContent = activeBusinesses;
 
-            if(!p.deadline) return false;
+    document.getElementById("opProjects")
+        .textContent = projects.length;
 
-            return new Date(p.deadline) < new Date() &&
-                   p.status !== "Concluído";
+    document.getElementById("opProgress")
+        .textContent = progress;
 
-        }).length;
-
-    document.getElementById("opProgress").textContent =
-        progress;
-
-    document.getElementById("opCompleted").textContent =
-        completed;
-
-    document.getElementById("opLate").textContent =
-        late;
-
-    document.getElementById("opPeople").textContent =
-        db.people.length;
+    document.getElementById("opCompleted")
+        .textContent = completed;
 
 
-    renderDashboardBusinesses();
-    renderAlerts();
-    renderUpcomingProjects();
     drawChart();
 
-    document.getElementById("chartYear").textContent =
-        new Date().getFullYear();
+}
+
+
+/* =========================================================
+   TANQUES
+========================================================= */
+
+function setTank(
+    waterId,
+    percentId,
+    badgeId,
+    value
+){
+
+    const safe =
+        Math.min(
+            100,
+            Math.max(0,Number(value)||0)
+        );
+
+    document.getElementById(waterId)
+        .style.height = safe+"%";
+
+    document.getElementById(percentId)
+        .textContent =
+        safe.toFixed(0)+"%";
+
+    document.getElementById(badgeId)
+        .textContent =
+        safe.toFixed(0)+"%";
 
 }
 
@@ -2949,59 +2361,94 @@ function drawChart(){
         window.devicePixelRatio || 1;
 
     canvas.width =
-        rect.width * dpr;
+        rect.width*dpr;
 
     canvas.height =
-        rect.height * dpr;
+        rect.height*dpr;
 
     ctx.scale(dpr,dpr);
 
-    const width = rect.width;
-    const height = rect.height;
+    const width =
+        rect.width;
 
-    ctx.clearRect(0,0,width,height);
+    const height =
+        rect.height;
+
+    ctx.clearRect(
+        0,
+        0,
+        width,
+        height
+    );
+
 
     const year =
         new Date().getFullYear();
 
-    const valuesRevenue =
-        Array(12).fill(0);
+    const months =
+        Array.from(
+            {length:12},
+            (_,i)=>i
+        );
 
-    const valuesExpense =
-        Array(12).fill(0);
 
-    db.transactions.forEach(t => {
+    const revenue =
+        months.map(month=>{
 
-        if(!t.date) return;
+            return db.transactions
+                .filter(t=>{
 
-        const d =
-            new Date(t.date);
+                    const date =
+                        new Date(t.date);
 
-        if(d.getFullYear() !== year) return;
+                    return
+                        date.getFullYear()===year &&
+                        date.getMonth()===month &&
+                        t.type==="receita";
 
-        const month =
-            d.getMonth();
+                })
+                .reduce(
+                    (a,b)=>a+Number(b.value),
+                    0
+                );
 
-        if(t.type === "receita"){
-            valuesRevenue[month] += Number(t.value || 0);
-        }
+        });
 
-        if(t.type === "despesa"){
-            valuesExpense[month] += Number(t.value || 0);
-        }
 
-    });
+    const expenses =
+        months.map(month=>{
+
+            return db.transactions
+                .filter(t=>{
+
+                    const date =
+                        new Date(t.date);
+
+                    return
+                        date.getFullYear()===year &&
+                        date.getMonth()===month &&
+                        t.type==="despesa";
+
+                })
+                .reduce(
+                    (a,b)=>a+Number(b.value),
+                    0
+                );
+
+        });
+
 
     const max =
         Math.max(
-            ...valuesRevenue,
-            ...valuesExpense,
-            100
+            100,
+            ...revenue,
+            ...expenses
         );
+
 
     const left = 45;
     const right = 15;
-    const top = 20;
+    const top = 15;
     const bottom = 35;
 
     const chartWidth =
@@ -3010,396 +2457,161 @@ function drawChart(){
     const chartHeight =
         height-top-bottom;
 
-    /* grid */
 
-    ctx.font = "10px Segoe UI";
-    ctx.fillStyle = "#657286";
-    ctx.strokeStyle = "#1c2735";
-    ctx.lineWidth = 1;
+    /* GRID */
+
+    ctx.font="9px Arial";
+    ctx.fillStyle="#68788e";
 
     for(let i=0;i<=4;i++){
 
         const y =
-            top + chartHeight -
-            (chartHeight * i / 4);
+            top +
+            chartHeight -
+            (chartHeight/4)*i;
+
+        ctx.strokeStyle="#172333";
+        ctx.lineWidth=1;
 
         ctx.beginPath();
+
         ctx.moveTo(left,y);
-        ctx.lineTo(width-right,y);
+
+        ctx.lineTo(
+            width-right,
+            y
+        );
+
         ctx.stroke();
 
         const value =
-            max * i / 4;
+            max/4*i;
 
         ctx.fillText(
-            formatCompactMoney(value),
-            2,
+            moneyShort(value),
+            4,
             y+3
         );
 
     }
 
-    const months = [
-        "Jan","Fev","Mar","Abr","Mai","Jun",
-        "Jul","Ago","Set","Out","Nov","Dez"
+
+    const xStep =
+        chartWidth/11;
+
+
+    const drawLine =
+        (data,stroke)=>{
+
+            ctx.beginPath();
+
+            data.forEach((value,i)=>{
+
+                const x =
+                    left+i*xStep;
+
+                const y =
+                    top+
+                    chartHeight-
+                    (value/max)*chartHeight;
+
+                if(i===0){
+
+                    ctx.moveTo(x,y);
+
+                }else{
+
+                    ctx.lineTo(x,y);
+
+                }
+
+            });
+
+            ctx.strokeStyle=stroke;
+            ctx.lineWidth=2.5;
+            ctx.stroke();
+
+
+            data.forEach((value,i)=>{
+
+                const x =
+                    left+i*xStep;
+
+                const y =
+                    top+
+                    chartHeight-
+                    (value/max)*chartHeight;
+
+                ctx.beginPath();
+
+                ctx.arc(
+                    x,
+                    y,
+                    3,
+                    0,
+                    Math.PI*2
+                );
+
+                ctx.fillStyle=stroke;
+                ctx.fill();
+
+            });
+
+        };
+
+
+    drawLine(
+        revenue,
+        "#4285ff"
+    );
+
+    drawLine(
+        expenses,
+        "#ff5368"
+    );
+
+
+    const labels = [
+        "Jan","Fev","Mar","Abr",
+        "Mai","Jun","Jul","Ago",
+        "Set","Out","Nov","Dez"
     ];
 
-    const xStep =
-        chartWidth / 11;
 
-    months.forEach((month,i)=>{
+    labels.forEach((label,i)=>{
 
         const x =
-            left + i*xStep;
+            left+i*xStep;
 
-        ctx.fillStyle = "#657286";
+        ctx.fillStyle="#65748a";
+        ctx.font="9px Arial";
+
+        ctx.textAlign="center";
 
         ctx.fillText(
-            month,
-            x-9,
-            height-10
+            label,
+            x,
+            height-8
         );
 
     });
 
-    drawLine(
-        ctx,
-        valuesRevenue,
-        left,
-        top,
-        chartWidth,
-        chartHeight,
-        max
-    );
-
-    drawLine(
-        ctx,
-        valuesExpense,
-        left,
-        top,
-        chartWidth,
-        chartHeight,
-        max,
-        true
-    );
+    ctx.textAlign="left";
 
 }
 
-function drawLine(
-    ctx,
-    values,
-    left,
-    top,
-    chartWidth,
-    chartHeight,
-    max,
-    dashed=false
-){
 
-    const xStep =
-        chartWidth / 11;
+function moneyShort(value){
 
-    ctx.beginPath();
+    value=Number(value)||0;
 
-    if(dashed){
-        ctx.setLineDash([5,5]);
-    }else{
-        ctx.setLineDash([]);
-    }
+    if(value>=1000000)
+        return "R$ "+(value/1000000).toFixed(1)+"M";
 
-    values.forEach((value,i)=>{
+    if(value>=1000)
+        return "R$ "+(value/1000).toFixed(0)+"k";
 
-        const x =
-            left + i*xStep;
-
-        const y =
-            top + chartHeight -
-            (value/max)*chartHeight;
-
-        if(i===0){
-            ctx.moveTo(x,y);
-        }else{
-            ctx.lineTo(x,y);
-        }
-
-    });
-
-    ctx.strokeStyle =
-        dashed ? "#ff5d73" : "#4f8cff";
-
-    ctx.lineWidth = 2.5;
-
-    ctx.stroke();
-
-    ctx.setLineDash([]);
-
-    values.forEach((value,i)=>{
-
-        const x =
-            left + i*xStep;
-
-        const y =
-            top + chartHeight -
-            (value/max)*chartHeight;
-
-        ctx.beginPath();
-
-        ctx.arc(x,y,3.5,0,Math.PI*2);
-
-        ctx.fillStyle =
-            dashed ? "#ff5d73" : "#4f8cff";
-
-        ctx.fill();
-
-    });
-
-}
-
-function formatCompactMoney(value){
-
-    value = Number(value || 0);
-
-    if(value >= 1000000){
-        return "R$ " + (value/1000000).toFixed(1) + "M";
-    }
-
-    if(value >= 1000){
-        return "R$ " + (value/1000).toFixed(0) + "k";
-    }
-
-    return "R$ " + value.toFixed(0);
-}
-
-
-/* =========================================================
-   DASHBOARD NEGÓCIOS
-========================================================= */
-
-function renderDashboardBusinesses(){
-
-    const container =
-        document.getElementById("dashboardBusinesses");
-
-    if(db.businesses.length === 0){
-
-        container.innerHTML = `
-            <div class="empty">
-                <strong>Nenhum negócio cadastrado</strong>
-                Comece adicionando sua primeira operação.
-            </div>
-        `;
-
-        return;
-    }
-
-    container.innerHTML = `
-        <div class="business-grid">
-
-            ${db.businesses.map(b => {
-
-                const revenue =
-                    db.transactions
-                    .filter(t =>
-                        t.type === "receita" &&
-                        t.businessId === b.id
-                    )
-                    .reduce(
-                        (sum,t) =>
-                            sum + Number(t.value || 0),
-                        0
-                    );
-
-                const goal =
-                    Number(b.goal || 0);
-
-                const progress =
-                    goal > 0
-                        ? Math.min((revenue/goal)*100,100)
-                        : 0;
-
-                return `
-                    <div class="business-card">
-
-                        <div class="business-card-head">
-
-                            <div>
-                                <h4>
-                                    ${escapeHTML(b.name)}
-                                </h4>
-
-                                <div class="business-category">
-                                    ${escapeHTML(b.category || "Sem categoria")}
-                                </div>
-                            </div>
-
-                            <span class="status ${escapeHTML(b.status)}">
-                                ${escapeHTML(b.status)}
-                            </span>
-
-                        </div>
-
-                        <div class="business-money">
-                            ${money(revenue)}
-                        </div>
-
-                        <div class="business-meta">
-                            faturamento cadastrado
-                        </div>
-
-                        <div style="margin-top:13px;">
-
-                            <div class="progress">
-
-                                <div class="progress-fill fill-blue"
-                                     style="width:${progress}%">
-                                </div>
-
-                            </div>
-
-                            <div class="business-meta">
-                                ${progress.toFixed(1)}% da meta anual
-                            </div>
-
-                        </div>
-
-                    </div>
-                `;
-
-            }).join("")}
-
-        </div>
-    `;
-}
-
-
-/* =========================================================
-   ALERTAS
-========================================================= */
-
-function renderAlerts(){
-
-    const container =
-        document.getElementById("alertsList");
-
-    const alerts = [];
-
-    const financial =
-        getFinancialTotals();
-
-    if(db.businesses.length === 0){
-
-        alerts.push({
-            title:"Nenhum negócio cadastrado",
-            text:"Cadastre suas operações para começar a consolidar o QG."
-        });
-
-    }
-
-    if(financial.revenue === 0){
-
-        alerts.push({
-            title:"Sem faturamento registrado",
-            text:"Ainda não existem receitas cadastradas."
-        });
-
-    }
-
-    if(financial.expenses > financial.revenue &&
-       financial.revenue > 0){
-
-        alerts.push({
-            title:"Despesas acima das receitas",
-            text:"As despesas cadastradas superam o faturamento."
-        });
-
-    }
-
-    const late =
-        db.projects.filter(p =>
-            p.deadline &&
-            new Date(p.deadline) < new Date() &&
-            p.status !== "Concluído"
-        );
-
-    if(late.length){
-
-        alerts.push({
-            title:`${late.length} projeto(s) atrasado(s)`,
-            text:"Existem projetos cujo prazo já passou."
-        });
-
-    }
-
-    if(alerts.length === 0){
-
-        alerts.push({
-            title:"Operação sem alertas críticos",
-            text:"Nenhum ponto de atenção automático foi identificado."
-        });
-
-    }
-
-    container.innerHTML =
-        alerts.slice(0,5).map(a => `
-            <div class="alert">
-                <strong>${escapeHTML(a.title)}</strong>
-                <span>${escapeHTML(a.text)}</span>
-            </div>
-        `).join("");
-
-}
-
-
-/* =========================================================
-   PRÓXIMOS PROJETOS
-========================================================= */
-
-function renderUpcomingProjects(){
-
-    const container =
-        document.getElementById("upcomingProjects");
-
-    const projects =
-        [...db.projects]
-        .filter(p => p.status !== "Concluído")
-        .sort((a,b) =>
-            new Date(a.deadline || "2999-01-01") -
-            new Date(b.deadline || "2999-01-01")
-        )
-        .slice(0,5);
-
-    if(projects.length === 0){
-
-        container.innerHTML = `
-            <div class="empty">
-                <strong>Nenhum projeto próximo</strong>
-                Cadastre seus projetos e prazos.
-            </div>
-        `;
-
-        return;
-    }
-
-    container.innerHTML =
-        projects.map(p => `
-
-            <div class="alert">
-
-                <strong>
-                    ${escapeHTML(p.name)}
-                </strong>
-
-                <span>
-                    Prazo:
-                    ${p.deadline
-                        ? new Date(p.deadline)
-                            .toLocaleDateString("pt-BR")
-                        : "Sem prazo"}
-                </span>
-
-            </div>
-
-        `).join("");
+    return "R$ "+value.toFixed(0);
 
 }
 
@@ -3408,39 +2620,41 @@ function renderUpcomingProjects(){
    NEGÓCIOS
 ========================================================= */
 
-function renderBusinessTable(){
+function renderBusinesses(){
 
     const tbody =
         document.getElementById("businessTable");
 
-    if(db.businesses.length === 0){
+    if(!tbody) return;
+
+    if(db.businesses.length===0){
 
         tbody.innerHTML = `
             <tr>
                 <td colspan="5">
                     <div class="empty">
-                        <strong>Nenhum negócio cadastrado</strong>
+                        Nenhum negócio cadastrado.
                     </div>
                 </td>
             </tr>
         `;
 
         return;
+
     }
 
+
     tbody.innerHTML =
-        db.businesses.map(b => `
+        db.businesses.map(b=>`
 
             <tr>
 
                 <td>
-                    <strong>
-                        ${escapeHTML(b.name)}
-                    </strong>
+                    <strong>${escapeHTML(b.name)}</strong>
                 </td>
 
                 <td>
-                    ${escapeHTML(b.category || "-")}
+                    ${escapeHTML(b.category)}
                 </td>
 
                 <td>
@@ -3454,23 +2668,31 @@ function renderBusinessTable(){
                         onchange="changeBusinessStatus('${b.id}',this.value)"
                     >
 
-                        <option value="Ativo"
-                            ${b.status==="Ativo"?"selected":""}>
+                        <option
+                            value="Ativo"
+                            ${b.status==="Ativo"?"selected":""}
+                        >
                             Ativo
                         </option>
 
-                        <option value="Planejamento"
-                            ${b.status==="Planejamento"?"selected":""}>
+                        <option
+                            value="Planejamento"
+                            ${b.status==="Planejamento"?"selected":""}
+                        >
                             Planejamento
                         </option>
 
-                        <option value="Pausado"
-                            ${b.status==="Pausado"?"selected":""}>
+                        <option
+                            value="Pausado"
+                            ${b.status==="Pausado"?"selected":""}
+                        >
                             Pausado
                         </option>
 
-                        <option value="Encerrado"
-                            ${b.status==="Encerrado"?"selected":""}>
+                        <option
+                            value="Encerrado"
+                            ${b.status==="Encerrado"?"selected":""}
+                        >
                             Encerrado
                         </option>
 
@@ -3480,140 +2702,222 @@ function renderBusinessTable(){
 
                 <td>
 
-                    <div class="actions">
+                    <button
+                        class="action-btn"
+                        onclick="editBusiness('${b.id}')"
+                    >
+                        Editar
+                    </button>
 
-                        <button
-                            class="btn"
-                            onclick="editBusiness('${b.id}')">
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteBusiness('${b.id}')">
-                            Excluir
-                        </button>
-
-                    </div>
+                    <button
+                        class="action-btn"
+                        onclick="deleteBusiness('${b.id}')"
+                    >
+                        Excluir
+                    </button>
 
                 </td>
 
             </tr>
 
         `).join("");
+
 }
+
+
+function changeBusinessStatus(id,status){
+
+    const business =
+        db.businesses.find(
+            b=>b.id===id
+        );
+
+    if(!business) return;
+
+    business.status=status;
+
+    saveDB();
+
+}
+
 
 function openBusinessModal(id=null){
 
-    document.getElementById("businessId").value =
-        id || "";
+    const business =
+        id
+        ? db.businesses.find(b=>b.id===id)
+        : null;
 
-    document.getElementById("businessModalTitle").textContent =
-        id ? "Editar negócio" : "Novo negócio";
+    showModal(`
 
-    if(id){
+        <h2>
+            ${business?"Editar negócio":"Novo negócio"}
+        </h2>
 
-        const b =
-            db.businesses.find(x => x.id === id);
+        <div class="form-grid">
 
-        if(!b) return;
+            <div class="form-group full">
 
-        document.getElementById("businessName").value =
-            b.name || "";
+                <label>Nome</label>
 
-        document.getElementById("businessCategory").value =
-            b.category || "";
+                <input
+                    id="businessName"
+                    value="${escapeHTML(business?.name || "")}"
+                >
 
-        document.getElementById("businessGoal").value =
-            b.goal || 0;
+            </div>
 
-        document.getElementById("businessStatus").value =
-            b.status || "Ativo";
+            <div class="form-group">
 
-    }else{
+                <label>Categoria</label>
 
-        document.getElementById("businessName").value = "";
-        document.getElementById("businessCategory").value = "";
-        document.getElementById("businessGoal").value = 0;
-        document.getElementById("businessStatus").value = "Ativo";
+                <input
+                    id="businessCategory"
+                    value="${escapeHTML(business?.category || "")}"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Meta de faturamento</label>
+
+                <input
+                    type="number"
+                    id="businessGoal"
+                    value="${business?.goal || ""}"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Status</label>
+
+                <select id="businessStatus">
+
+                    <option ${business?.status==="Ativo"?"selected":""}>
+                        Ativo
+                    </option>
+
+                    <option ${business?.status==="Planejamento"?"selected":""}>
+                        Planejamento
+                    </option>
+
+                    <option ${business?.status==="Pausado"?"selected":""}>
+                        Pausado
+                    </option>
+
+                    <option ${business?.status==="Encerrado"?"selected":""}>
+                        Encerrado
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="saveBusiness('${id || ""}')"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveBusiness(id){
+
+    const name =
+        document.getElementById("businessName").value.trim();
+
+    if(!name){
+
+        alert("Informe o nome do negócio.");
+
+        return;
 
     }
 
-    openModal("businessModal");
-}
+    const data={
 
-function editBusiness(id){
-    openBusinessModal(id);
-}
-
-function saveBusiness(event){
-
-    event.preventDefault();
-
-    const id =
-        document.getElementById("businessId").value;
-
-    const data = {
-
-        name:
-            document.getElementById("businessName").value,
+        name,
 
         category:
             document.getElementById("businessCategory").value,
 
         goal:
             Number(
-                document.getElementById("businessGoal").value || 0
-            ),
+                document.getElementById("businessGoal").value
+            ) || 0,
 
         status:
             document.getElementById("businessStatus").value
 
     };
 
+
     if(id){
 
         const b =
-            db.businesses.find(x => x.id === id);
+            db.businesses.find(
+                x=>x.id===id
+            );
 
         Object.assign(b,data);
 
     }else{
 
         db.businesses.push({
+
             id:uid(),
             ...data
+
         });
 
     }
 
-    closeModal("businessModal");
+    closeModal();
 
     saveDB();
+
 }
 
-function changeBusinessStatus(id,status){
 
-    const b =
-        db.businesses.find(x => x.id === id);
+function editBusiness(id){
 
-    if(!b) return;
+    openBusinessModal(id);
 
-    b.status = status;
-
-    saveDB();
 }
+
 
 function deleteBusiness(id){
 
-    if(!confirm("Excluir este negócio?")) return;
+    if(!confirm("Excluir este negócio?"))
+        return;
 
     db.businesses =
         db.businesses.filter(
-            b => b.id !== id
+            b=>b.id!==id
         );
 
     saveDB();
+
 }
 
 
@@ -3621,84 +2925,44 @@ function deleteBusiness(id){
    FINANCEIRO
 ========================================================= */
 
-function populateBusinessSelects(){
-
-    const selects = [
-        document.getElementById("transactionBusiness"),
-        document.getElementById("projectBusiness")
-    ];
-
-    selects.forEach(select => {
-
-        if(!select) return;
-
-        const current = select.value;
-
-        select.innerHTML =
-            `<option value="">Geral</option>` +
-            db.businesses.map(b =>
-                `<option value="${b.id}">
-                    ${escapeHTML(b.name)}
-                </option>`
-            ).join("");
-
-        select.value = current;
-
-    });
-
-}
-
 function renderFinance(){
-
-    const financial =
-        getFinancialTotals();
-
-    document.getElementById("financeRevenue").textContent =
-        money(financial.revenue);
-
-    document.getElementById("financeExpenses").textContent =
-        money(financial.expenses);
-
-    document.getElementById("financeResult").textContent =
-        money(financial.result);
-
-    document.getElementById("financeCount").textContent =
-        db.transactions.length;
 
     const tbody =
         document.getElementById("financeTable");
 
-    if(db.transactions.length === 0){
+    if(!tbody) return;
 
-        tbody.innerHTML = `
+    if(db.transactions.length===0){
+
+        tbody.innerHTML=`
+
             <tr>
-                <td colspan="6">
+                <td colspan="5">
                     <div class="empty">
-                        <strong>Nenhum lançamento</strong>
-                        Cadastre receitas e despesas.
+                        Nenhum lançamento cadastrado.
                     </div>
                 </td>
             </tr>
+
         `;
 
         return;
+
     }
+
 
     tbody.innerHTML =
         [...db.transactions]
-        .sort((a,b) =>
-            new Date(b.date) -
-            new Date(a.date)
+        .sort(
+            (a,b)=>
+            new Date(b.date)-new Date(a.date)
         )
-        .map(t => `
+        .map(t=>`
 
             <tr>
 
                 <td>
-                    ${t.date
-                        ? new Date(t.date)
-                            .toLocaleDateString("pt-BR")
-                        : "-"}
+                    ${new Date(t.date).toLocaleDateString("pt-BR")}
                 </td>
 
                 <td>
@@ -3706,162 +2970,180 @@ function renderFinance(){
                 </td>
 
                 <td>
-                    <span class="${t.type==="receita"
-                        ?"green"
-                        :"red"}">
-                        ${t.type==="receita"
-                            ?"Receita"
-                            :"Despesa"}
-                    </span>
+                    ${t.type==="receita"
+                        ?"Receita"
+                        :"Despesa"}
                 </td>
 
                 <td>
-                    ${escapeHTML(t.category || "-")}
-                </td>
-
-                <td>
-                    <strong>
-                        ${money(t.value)}
-                    </strong>
+                    ${money(t.value)}
                 </td>
 
                 <td>
 
-                    <div class="actions">
-
-                        <button
-                            class="btn"
-                            onclick="editTransaction('${t.id}')">
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteTransaction('${t.id}')">
-                            Excluir
-                        </button>
-
-                    </div>
+                    <button
+                        class="action-btn"
+                        onclick="deleteTransaction('${t.id}')"
+                    >
+                        Excluir
+                    </button>
 
                 </td>
 
             </tr>
 
         `).join("");
+
 }
 
-function openTransactionModal(id=null){
 
-    populateBusinessSelects();
+function openTransactionModal(){
 
-    document.getElementById("transactionId").value =
-        id || "";
+    showModal(`
 
-    if(id){
+        <h2>Novo lançamento</h2>
 
-        const t =
-            db.transactions.find(x => x.id === id);
+        <div class="form-grid">
 
-        if(!t) return;
+            <div class="form-group full">
 
-        document.getElementById("transactionDescription").value =
-            t.description || "";
+                <label>Descrição</label>
 
-        document.getElementById("transactionValue").value =
-            t.value || "";
+                <input id="transactionDescription">
 
-        document.getElementById("transactionType").value =
-            t.type || "receita";
+            </div>
 
-        document.getElementById("transactionCategory").value =
-            t.category || "";
+            <div class="form-group">
 
-        document.getElementById("transactionDate").value =
-            t.date || today();
+                <label>Tipo</label>
 
-        document.getElementById("transactionBusiness").value =
-            t.businessId || "";
+                <select id="transactionType">
 
-    }else{
+                    <option value="receita">
+                        Receita
+                    </option>
 
-        document.getElementById("transactionDescription").value = "";
-        document.getElementById("transactionValue").value = "";
-        document.getElementById("transactionType").value = "receita";
-        document.getElementById("transactionCategory").value = "";
-        document.getElementById("transactionDate").value = today();
-        document.getElementById("transactionBusiness").value = "";
+                    <option value="despesa">
+                        Despesa
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Valor</label>
+
+                <input
+                    type="number"
+                    step="0.01"
+                    id="transactionValue"
+                >
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Data</label>
+
+                <input
+                    type="date"
+                    id="transactionDate"
+                    value="${new Date().toISOString().slice(0,10)}"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="saveTransaction()"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveTransaction(){
+
+    const description =
+        document.getElementById("transactionDescription")
+        .value.trim();
+
+    const type =
+        document.getElementById("transactionType")
+        .value;
+
+    const value =
+        Number(
+            document.getElementById("transactionValue")
+            .value
+        );
+
+    const date =
+        document.getElementById("transactionDate")
+        .value;
+
+
+    if(!description || !value || !date){
+
+        alert("Preencha todos os campos.");
+
+        return;
 
     }
 
-    openModal("transactionModal");
-}
 
-function editTransaction(id){
-    openTransactionModal(id);
-}
+    db.transactions.push({
 
-function saveTransaction(event){
+        id:uid(),
 
-    event.preventDefault();
+        description,
 
-    const id =
-        document.getElementById("transactionId").value;
+        type,
 
-    const data = {
+        value,
 
-        description:
-            document.getElementById("transactionDescription").value,
+        date
 
-        value:
-            Number(
-                document.getElementById("transactionValue").value || 0
-            ),
+    });
 
-        type:
-            document.getElementById("transactionType").value,
 
-        category:
-            document.getElementById("transactionCategory").value,
-
-        date:
-            document.getElementById("transactionDate").value,
-
-        businessId:
-            document.getElementById("transactionBusiness").value
-
-    };
-
-    if(id){
-
-        const t =
-            db.transactions.find(x => x.id === id);
-
-        Object.assign(t,data);
-
-    }else{
-
-        db.transactions.push({
-            id:uid(),
-            ...data
-        });
-
-    }
-
-    closeModal("transactionModal");
+    closeModal();
 
     saveDB();
+
 }
+
 
 function deleteTransaction(id){
 
-    if(!confirm("Excluir lançamento?")) return;
+    if(!confirm("Excluir lançamento?"))
+        return;
 
     db.transactions =
         db.transactions.filter(
-            t => t.id !== id
+            t=>t.id!==id
         );
 
     saveDB();
+
 }
 
 
@@ -3871,68 +3153,45 @@ function deleteTransaction(id){
 
 function renderClients(){
 
-    const total =
-        db.clients.length;
-
-    const active =
-        db.clients.filter(
-            c => c.status === "Ativo"
-        ).length;
-
-    const leads =
-        db.clients.filter(
-            c => c.status === "Lead"
-        ).length;
-
-    const proposals =
-        db.clients.filter(
-            c => c.status === "Proposta"
-        ).length;
-
-    document.getElementById("clientTotal").textContent =
-        total;
-
-    document.getElementById("clientActive").textContent =
-        active;
-
-    document.getElementById("clientLeads").textContent =
-        leads;
-
-    document.getElementById("clientProposals").textContent =
-        proposals;
-
     const tbody =
         document.getElementById("clientTable");
 
-    if(total === 0){
+    if(!tbody) return;
 
-        tbody.innerHTML = `
+    if(db.clients.length===0){
+
+        tbody.innerHTML=`
+
             <tr>
-                <td colspan="6">
+                <td colspan="5">
                     <div class="empty">
-                        <strong>Nenhum cliente</strong>
-                        Cadastre sua base comercial.
+                        Nenhum cliente cadastrado.
                     </div>
                 </td>
             </tr>
+
         `;
 
         return;
+
     }
 
+
     tbody.innerHTML =
-        db.clients.map(c => `
+        db.clients.map(c=>`
 
             <tr>
 
                 <td>
-                    <strong>
-                        ${escapeHTML(c.name)}
-                    </strong>
+                    <strong>${escapeHTML(c.name)}</strong>
                 </td>
 
                 <td>
-                    ${escapeHTML(c.company || "-")}
+                    ${escapeHTML(c.company)}
+                </td>
+
+                <td>
+                    ${new Date(c.date).toLocaleDateString("pt-BR")}
                 </td>
 
                 <td>
@@ -3940,144 +3199,137 @@ function renderClients(){
                 </td>
 
                 <td>
-                    ${money(c.value)}
-                </td>
 
-                <td>
-                    ${c.date
-                        ? new Date(c.date)
-                            .toLocaleDateString("pt-BR")
-                        : "-"}
-                </td>
-
-                <td>
-
-                    <div class="actions">
-
-                        <button
-                            class="btn"
-                            onclick="editClient('${c.id}')">
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteClient('${c.id}')">
-                            Excluir
-                        </button>
-
-                    </div>
+                    <button
+                        class="action-btn"
+                        onclick="deleteClient('${c.id}')"
+                    >
+                        Excluir
+                    </button>
 
                 </td>
 
             </tr>
 
         `).join("");
+
 }
 
-function openClientModal(id=null){
 
-    document.getElementById("clientId").value =
-        id || "";
+function openClientModal(){
 
-    if(id){
+    showModal(`
 
-        const c =
-            db.clients.find(x => x.id === id);
+        <h2>Novo cliente</h2>
 
-        if(!c) return;
+        <div class="form-grid">
 
-        document.getElementById("clientName").value =
-            c.name || "";
+            <div class="form-group full">
 
-        document.getElementById("clientCompany").value =
-            c.company || "";
+                <label>Nome</label>
 
-        document.getElementById("clientStatus").value =
-            c.status || "Lead";
+                <input id="clientName">
 
-        document.getElementById("clientValue").value =
-            c.value || 0;
+            </div>
 
-        document.getElementById("clientDate").value =
-            c.date || today();
+            <div class="form-group">
 
-    }else{
+                <label>Empresa</label>
 
-        document.getElementById("clientName").value = "";
-        document.getElementById("clientCompany").value = "";
-        document.getElementById("clientStatus").value = "Lead";
-        document.getElementById("clientValue").value = 0;
-        document.getElementById("clientDate").value = today();
+                <input id="clientCompany">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Status</label>
+
+                <select id="clientStatus">
+
+                    <option>Ativo</option>
+                    <option>Inativo</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="saveClient()"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveClient(){
+
+    const name =
+        document.getElementById("clientName")
+        .value.trim();
+
+    if(!name){
+
+        alert("Informe o nome.");
+
+        return;
 
     }
 
-    openModal("clientModal");
-}
+    db.clients.push({
 
-function editClient(id){
-    openClientModal(id);
-}
+        id:uid(),
 
-function saveClient(event){
-
-    event.preventDefault();
-
-    const id =
-        document.getElementById("clientId").value;
-
-    const data = {
-
-        name:
-            document.getElementById("clientName").value,
+        name,
 
         company:
-            document.getElementById("clientCompany").value,
+            document.getElementById("clientCompany")
+            .value,
 
         status:
-            document.getElementById("clientStatus").value,
-
-        value:
-            Number(
-                document.getElementById("clientValue").value || 0
-            ),
+            document.getElementById("clientStatus")
+            .value,
 
         date:
-            document.getElementById("clientDate").value
+            new Date().toISOString()
 
-    };
+    });
 
-    if(id){
-
-        const c =
-            db.clients.find(x => x.id === id);
-
-        Object.assign(c,data);
-
-    }else{
-
-        db.clients.push({
-            id:uid(),
-            ...data
-        });
-
-    }
-
-    closeModal("clientModal");
+    closeModal();
 
     saveDB();
+
 }
+
 
 function deleteClient(id){
 
-    if(!confirm("Excluir cliente?")) return;
+    if(!confirm("Excluir cliente?"))
+        return;
 
     db.clients =
         db.clients.filter(
-            c => c.id !== id
+            c=>c.id!==id
         );
 
     saveDB();
+
 }
 
 
@@ -4087,226 +3339,179 @@ function deleteClient(id){
 
 function renderProjects(){
 
-    const total =
-        db.projects.length;
+    const container =
+        document.getElementById("projectCards");
 
-    const progress =
-        db.projects.filter(
-            p => p.status === "Em andamento"
-        ).length;
+    if(!container) return;
 
-    const completed =
-        db.projects.filter(
-            p => p.status === "Concluído"
-        ).length;
+    if(db.projects.length===0){
 
-    const late =
-        db.projects.filter(p =>
-            p.deadline &&
-            new Date(p.deadline) < new Date() &&
-            p.status !== "Concluído"
-        ).length;
+        container.innerHTML=`
 
-    document.getElementById("projectTotal").textContent =
-        total;
+            <div class="simple-card">
+                <div class="empty">
+                    Nenhum projeto cadastrado.
+                </div>
+            </div>
 
-    document.getElementById("projectProgress").textContent =
-        progress;
-
-    document.getElementById("projectCompleted").textContent =
-        completed;
-
-    document.getElementById("projectLate").textContent =
-        late;
-
-    const tbody =
-        document.getElementById("projectTable");
-
-    if(total === 0){
-
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="6">
-                    <div class="empty">
-                        <strong>Nenhum projeto</strong>
-                        Cadastre seus projetos.
-                    </div>
-                </td>
-            </tr>
         `;
 
         return;
+
     }
 
-    tbody.innerHTML =
-        db.projects.map(p => {
 
-            const business =
-                db.businesses.find(
-                    b => b.id === p.businessId
-                );
+    container.innerHTML =
+        db.projects.map(p=>`
 
-            return `
+            <div class="simple-card">
 
-                <tr>
+                <h3>
+                    ${escapeHTML(p.name)}
+                </h3>
 
-                    <td>
-                        <strong>
-                            ${escapeHTML(p.name)}
-                        </strong>
-                    </td>
-
-                    <td>
-                        ${escapeHTML(
-                            business?.name || "Geral"
-                        )}
-                    </td>
-
-                    <td>
+                <p>
+                    Status:
+                    <strong>
                         ${escapeHTML(p.status)}
-                    </td>
+                    </strong>
+                </p>
 
-                    <td>
-                        ${escapeHTML(p.priority)}
-                    </td>
+                <p>
+                    ${escapeHTML(p.description)}
+                </p>
 
-                    <td>
-                        ${p.deadline
-                            ? new Date(p.deadline)
-                                .toLocaleDateString("pt-BR")
-                            : "-"}
-                    </td>
+                <div style="margin-top:15px">
 
-                    <td>
+                    <button
+                        class="action-btn"
+                        onclick="deleteProject('${p.id}')"
+                    >
+                        Excluir
+                    </button>
 
-                        <div class="actions">
+                </div>
 
-                            <button
-                                class="btn"
-                                onclick="editProject('${p.id}')">
-                                Editar
-                            </button>
+            </div>
 
-                            <button
-                                class="btn btn-danger"
-                                onclick="deleteProject('${p.id}')">
-                                Excluir
-                            </button>
+        `).join("");
 
-                        </div>
-
-                    </td>
-
-                </tr>
-
-            `;
-
-        }).join("");
 }
 
-function openProjectModal(id=null){
 
-    populateBusinessSelects();
+function openProjectModal(){
 
-    document.getElementById("projectId").value =
-        id || "";
+    showModal(`
 
-    if(id){
+        <h2>Novo projeto</h2>
 
-        const p =
-            db.projects.find(x => x.id === id);
+        <div class="form-grid">
 
-        if(!p) return;
+            <div class="form-group full">
 
-        document.getElementById("projectName").value =
-            p.name || "";
+                <label>Nome</label>
 
-        document.getElementById("projectBusiness").value =
-            p.businessId || "";
+                <input id="projectName">
 
-        document.getElementById("projectStatus").value =
-            p.status || "Planejamento";
+            </div>
 
-        document.getElementById("projectPriority").value =
-            p.priority || "Média";
+            <div class="form-group">
 
-        document.getElementById("projectDeadline").value =
-            p.deadline || today();
+                <label>Status</label>
 
-    }else{
+                <select id="projectStatus">
 
-        document.getElementById("projectName").value = "";
-        document.getElementById("projectBusiness").value = "";
-        document.getElementById("projectStatus").value = "Planejamento";
-        document.getElementById("projectPriority").value = "Média";
-        document.getElementById("projectDeadline").value = today();
+                    <option>Planejamento</option>
+                    <option>Em andamento</option>
+                    <option>Concluído</option>
+                    <option>Parado</option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group full">
+
+                <label>Descrição</label>
+
+                <textarea id="projectDescription"></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="saveProject()"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveProject(){
+
+    const name =
+        document.getElementById("projectName")
+        .value.trim();
+
+    if(!name){
+
+        alert("Informe o nome.");
+
+        return;
 
     }
 
-    openModal("projectModal");
-}
+    db.projects.push({
 
-function editProject(id){
-    openProjectModal(id);
-}
+        id:uid(),
 
-function saveProject(event){
-
-    event.preventDefault();
-
-    const id =
-        document.getElementById("projectId").value;
-
-    const data = {
-
-        name:
-            document.getElementById("projectName").value,
-
-        businessId:
-            document.getElementById("projectBusiness").value,
+        name,
 
         status:
-            document.getElementById("projectStatus").value,
+            document.getElementById("projectStatus")
+            .value,
 
-        priority:
-            document.getElementById("projectPriority").value,
+        description:
+            document.getElementById("projectDescription")
+            .value
 
-        deadline:
-            document.getElementById("projectDeadline").value
+    });
 
-    };
-
-    if(id){
-
-        const p =
-            db.projects.find(x => x.id === id);
-
-        Object.assign(p,data);
-
-    }else{
-
-        db.projects.push({
-            id:uid(),
-            ...data
-        });
-
-    }
-
-    closeModal("projectModal");
+    closeModal();
 
     saveDB();
+
 }
+
 
 function deleteProject(id){
 
-    if(!confirm("Excluir projeto?")) return;
+    if(!confirm("Excluir projeto?"))
+        return;
 
     db.projects =
         db.projects.filter(
-            p => p.id !== id
+            p=>p.id!==id
         );
 
     saveDB();
+
 }
 
 
@@ -4316,166 +3521,156 @@ function deleteProject(id){
 
 function renderPeople(){
 
-    const tbody =
-        document.getElementById("peopleTable");
+    const container =
+        document.getElementById("peopleCards");
 
-    if(db.people.length === 0){
+    if(!container) return;
 
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="5">
-                    <div class="empty">
-                        <strong>Nenhuma pessoa cadastrada</strong>
-                    </div>
-                </td>
-            </tr>
+    if(db.people.length===0){
+
+        container.innerHTML=`
+
+            <div class="simple-card">
+                <div class="empty">
+                    Nenhuma pessoa cadastrada.
+                </div>
+            </div>
+
         `;
 
         return;
+
     }
 
-    tbody.innerHTML =
-        db.people.map(p => `
 
-            <tr>
+    container.innerHTML =
+        db.people.map(p=>`
 
-                <td>
-                    <strong>
-                        ${escapeHTML(p.name)}
-                    </strong>
-                </td>
+            <div class="simple-card">
 
-                <td>
-                    ${escapeHTML(p.role || "-")}
-                </td>
+                <h3>
+                    ${escapeHTML(p.name)}
+                </h3>
 
-                <td>
-                    ${escapeHTML(p.area || "-")}
-                </td>
+                <p>
+                    Cargo:
+                    ${escapeHTML(p.role)}
+                </p>
 
-                <td>
-                    ${escapeHTML(p.status)}
-                </td>
+                <div style="margin-top:15px">
 
-                <td>
+                    <button
+                        class="action-btn"
+                        onclick="deletePerson('${p.id}')"
+                    >
+                        Excluir
+                    </button>
 
-                    <div class="actions">
+                </div>
 
-                        <button
-                            class="btn"
-                            onclick="editPerson('${p.id}')">
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deletePerson('${p.id}')">
-                            Excluir
-                        </button>
-
-                    </div>
-
-                </td>
-
-            </tr>
+            </div>
 
         `).join("");
+
 }
 
-function openPersonModal(id=null){
 
-    document.getElementById("personId").value =
-        id || "";
+function openPersonModal(){
 
-    if(id){
+    showModal(`
 
-        const p =
-            db.people.find(x => x.id === id);
+        <h2>Nova pessoa</h2>
 
-        if(!p) return;
+        <div class="form-grid">
 
-        document.getElementById("personName").value =
-            p.name || "";
+            <div class="form-group">
 
-        document.getElementById("personRole").value =
-            p.role || "";
+                <label>Nome</label>
 
-        document.getElementById("personArea").value =
-            p.area || "";
+                <input id="personName">
 
-        document.getElementById("personStatus").value =
-            p.status || "Ativo";
+            </div>
 
-    }else{
+            <div class="form-group">
 
-        document.getElementById("personName").value = "";
-        document.getElementById("personRole").value = "";
-        document.getElementById("personArea").value = "";
-        document.getElementById("personStatus").value = "Ativo";
+                <label>Cargo</label>
+
+                <input id="personRole">
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="savePerson()"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function savePerson(){
+
+    const name =
+        document.getElementById("personName")
+        .value.trim();
+
+    const role =
+        document.getElementById("personRole")
+        .value.trim();
+
+    if(!name){
+
+        alert("Informe o nome.");
+
+        return;
 
     }
 
-    openModal("personModal");
-}
+    db.people.push({
 
-function editPerson(id){
-    openPersonModal(id);
-}
+        id:uid(),
 
-function savePerson(event){
+        name,
 
-    event.preventDefault();
+        role
 
-    const id =
-        document.getElementById("personId").value;
+    });
 
-    const data = {
-
-        name:
-            document.getElementById("personName").value,
-
-        role:
-            document.getElementById("personRole").value,
-
-        area:
-            document.getElementById("personArea").value,
-
-        status:
-            document.getElementById("personStatus").value
-
-    };
-
-    if(id){
-
-        const p =
-            db.people.find(x => x.id === id);
-
-        Object.assign(p,data);
-
-    }else{
-
-        db.people.push({
-            id:uid(),
-            ...data
-        });
-
-    }
-
-    closeModal("personModal");
+    closeModal();
 
     saveDB();
+
 }
+
 
 function deletePerson(id){
 
-    if(!confirm("Excluir pessoa?")) return;
+    if(!confirm("Excluir pessoa?"))
+        return;
 
     db.people =
         db.people.filter(
-            p => p.id !== id
+            p=>p.id!==id
         );
 
     saveDB();
+
 }
 
 
@@ -4488,177 +3683,171 @@ function renderGoals(){
     const container =
         document.getElementById("goalCards");
 
-    if(db.goals.length === 0){
+    if(!container) return;
 
-        container.innerHTML = `
-            <div class="card plan-card">
-                <h3>Nenhuma meta criada</h3>
-                <p>
-                    Crie objetivos estratégicos para acompanhar
-                    a evolução da empresa.
-                </p>
+    if(db.goals.length===0){
+
+        container.innerHTML=`
+
+            <div class="simple-card">
+                <div class="empty">
+                    Nenhuma meta cadastrada.
+                </div>
             </div>
+
         `;
 
         return;
+
     }
 
+
     container.innerHTML =
-        db.goals.map(g => {
+        db.goals.map(g=>`
 
-            const target =
-                Number(g.target || 0);
+            <div class="simple-card">
 
-            const current =
-                Number(g.current || 0);
+                <h3>
+                    ${escapeHTML(g.name)}
+                </h3>
 
-            const percent =
-                target > 0
-                    ? Math.min((current/target)*100,100)
-                    : 0;
+                <p>
+                    Objetivo:
+                    ${escapeHTML(g.target)}
+                </p>
 
-            return `
+                <p>
+                    Prazo:
+                    ${escapeHTML(g.deadline)}
+                </p>
 
-                <div class="card plan-card">
+                <div style="margin-top:15px">
 
-                    <h3>
-                        ${escapeHTML(g.name)}
-                    </h3>
-
-                    <div class="big blue">
-                        ${percent.toFixed(1)}%
-                    </div>
-
-                    <p>
-                        ${money(current)}
-                        de
-                        ${money(target)}
-                    </p>
-
-                    <div class="progress"
-                         style="margin-top:18px;">
-
-                        <div class="progress-fill fill-blue"
-                             style="width:${percent}%">
-                        </div>
-
-                    </div>
-
-                    <div class="actions"
-                         style="margin-top:15px;">
-
-                        <button
-                            class="btn"
-                            onclick="editGoal('${g.id}')">
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteGoal('${g.id}')">
-                            Excluir
-                        </button>
-
-                    </div>
+                    <button
+                        class="action-btn"
+                        onclick="deleteGoal('${g.id}')"
+                    >
+                        Excluir
+                    </button>
 
                 </div>
 
-            `;
+            </div>
 
-        }).join("");
+        `).join("");
+
 }
 
-function openGoalModal(id=null){
 
-    document.getElementById("goalId").value =
-        id || "";
+function openGoalModal(){
 
-    if(id){
+    showModal(`
 
-        const g =
-            db.goals.find(x => x.id === id);
+        <h2>Nova meta</h2>
 
-        if(!g) return;
+        <div class="form-grid">
 
-        document.getElementById("goalName").value =
-            g.name || "";
+            <div class="form-group">
 
-        document.getElementById("goalTarget").value =
-            g.target || 0;
+                <label>Meta</label>
 
-        document.getElementById("goalCurrent").value =
-            g.current || 0;
+                <input id="goalName">
 
-    }else{
+            </div>
 
-        document.getElementById("goalName").value = "";
-        document.getElementById("goalTarget").value = 0;
-        document.getElementById("goalCurrent").value = 0;
+            <div class="form-group">
+
+                <label>Objetivo</label>
+
+                <input id="goalTarget">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Prazo</label>
+
+                <input
+                    type="date"
+                    id="goalDeadline"
+                >
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="saveGoal()"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveGoal(){
+
+    const name =
+        document.getElementById("goalName")
+        .value.trim();
+
+    if(!name){
+
+        alert("Informe a meta.");
+
+        return;
 
     }
 
-    openModal("goalModal");
-}
+    db.goals.push({
 
-function editGoal(id){
-    openGoalModal(id);
-}
+        id:uid(),
 
-function saveGoal(event){
-
-    event.preventDefault();
-
-    const id =
-        document.getElementById("goalId").value;
-
-    const data = {
-
-        name:
-            document.getElementById("goalName").value,
+        name,
 
         target:
-            Number(
-                document.getElementById("goalTarget").value || 0
-            ),
+            document.getElementById("goalTarget")
+            .value,
 
-        current:
-            Number(
-                document.getElementById("goalCurrent").value || 0
-            )
+        deadline:
+            document.getElementById("goalDeadline")
+            .value
 
-    };
+    });
 
-    if(id){
-
-        const g =
-            db.goals.find(x => x.id === id);
-
-        Object.assign(g,data);
-
-    }else{
-
-        db.goals.push({
-            id:uid(),
-            ...data
-        });
-
-    }
-
-    closeModal("goalModal");
+    closeModal();
 
     saveDB();
+
 }
+
 
 function deleteGoal(id){
 
-    if(!confirm("Excluir meta?")) return;
+    if(!confirm("Excluir meta?"))
+        return;
 
     db.goals =
         db.goals.filter(
-            g => g.id !== id
+            g=>g.id!==id
         );
 
     saveDB();
+
 }
 
 
@@ -4668,98 +3857,35 @@ function deleteGoal(id){
 
 function renderPlanning(){
 
-    document.getElementById("planningRevenue").value =
-        db.planning.annualRevenueGoal || 0;
+    document.getElementById("annualGoalInput")
+        .value =
+        db.planning.annualRevenueGoal;
 
-    document.getElementById("planningClients").value =
-        db.planning.clientGoal || 0;
+    document.getElementById("clientGoalInput")
+        .value =
+        db.planning.clientGoal;
 
-    document.getElementById("planningYear").textContent =
-        new Date().getFullYear();
-
-    const financial =
-        getFinancialTotals();
-
-    const goal =
-        Number(db.planning.annualRevenueGoal || 0);
-
-    const progress =
-        goal > 0
-            ? (financial.revenue / goal) * 100
-            : 0;
-
-    document.getElementById("planningSummary").innerHTML = `
-
-        <div class="grid kpi-grid">
-
-            <div class="card">
-
-                <span class="kpi-label">
-                    Meta anual
-                </span>
-
-                <div class="kpi-value blue">
-                    ${money(goal)}
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <span class="kpi-label">
-                    Realizado
-                </span>
-
-                <div class="kpi-value green">
-                    ${money(financial.revenue)}
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <span class="kpi-label">
-                    Progresso
-                </span>
-
-                <div class="kpi-value purple">
-                    ${progress.toFixed(1)}%
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <span class="kpi-label">
-                    Clientes
-                </span>
-
-                <div class="kpi-value cyan">
-                    ${db.clients.length}
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
 }
+
 
 function savePlanning(){
 
     db.planning.annualRevenueGoal =
         Number(
-            document.getElementById("planningRevenue").value || 0
-        );
+            document.getElementById("annualGoalInput")
+            .value
+        ) || 0;
 
     db.planning.clientGoal =
         Number(
-            document.getElementById("planningClients").value || 0
-        );
+            document.getElementById("clientGoalInput")
+            .value
+        ) || 0;
 
     saveDB();
 
-    alert("Planejamento salvo.");
+    alert("Planejamento anual salvo.");
+
 }
 
 
@@ -4769,320 +3895,176 @@ function savePlanning(){
 
 function renderDocuments(){
 
-    const tbody =
-        document.getElementById("documentTable");
+    const container =
+        document.getElementById("documentCards");
 
-    if(db.documents.length === 0){
+    if(!container) return;
 
-        tbody.innerHTML = `
-            <tr>
-                <td colspan="5">
-                    <div class="empty">
-                        <strong>Nenhum documento</strong>
-                        Cadastre referências documentais.
-                    </div>
-                </td>
-            </tr>
+    if(db.documents.length===0){
+
+        container.innerHTML=`
+
+            <div class="simple-card">
+                <div class="empty">
+                    Nenhum documento cadastrado.
+                </div>
+            </div>
+
         `;
 
         return;
+
     }
 
-    tbody.innerHTML =
-        db.documents.map(d => `
 
-            <tr>
+    container.innerHTML =
+        db.documents.map(d=>`
 
-                <td>
-                    <strong>
-                        ${escapeHTML(d.name)}
-                    </strong>
-                </td>
+            <div class="simple-card">
 
-                <td>
-                    ${escapeHTML(d.category || "-")}
-                </td>
+                <h3>
+                    ${escapeHTML(d.name)}
+                </h3>
 
-                <td>
-                    ${escapeHTML(d.description || "-")}
-                </td>
+                <p>
+                    ${escapeHTML(d.description)}
+                </p>
 
-                <td>
-                    ${d.date
-                        ? new Date(d.date)
-                            .toLocaleDateString("pt-BR")
-                        : "-"}
-                </td>
+                <div style="margin-top:15px">
 
-                <td>
+                    <button
+                        class="action-btn"
+                        onclick="deleteDocument('${d.id}')"
+                    >
+                        Excluir
+                    </button>
 
-                    <div class="actions">
+                </div>
 
-                        <button
-                            class="btn"
-                            onclick="editDocument('${d.id}')">
-                            Editar
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteDocument('${d.id}')">
-                            Excluir
-                        </button>
-
-                    </div>
-
-                </td>
-
-            </tr>
+            </div>
 
         `).join("");
+
 }
 
-function openDocumentModal(id=null){
 
-    document.getElementById("documentId").value =
-        id || "";
+function openDocumentModal(){
 
-    if(id){
+    showModal(`
 
-        const d =
-            db.documents.find(x => x.id === id);
+        <h2>Novo documento</h2>
 
-        if(!d) return;
+        <div class="form-grid">
 
-        document.getElementById("documentName").value =
-            d.name || "";
+            <div class="form-group full">
 
-        document.getElementById("documentCategory").value =
-            d.category || "";
+                <label>Nome</label>
 
-        document.getElementById("documentDate").value =
-            d.date || today();
+                <input id="documentName">
 
-        document.getElementById("documentDescription").value =
-            d.description || "";
+            </div>
 
-    }else{
+            <div class="form-group full">
 
-        document.getElementById("documentName").value = "";
-        document.getElementById("documentCategory").value = "";
-        document.getElementById("documentDate").value = today();
-        document.getElementById("documentDescription").value = "";
+                <label>Descrição</label>
+
+                <textarea id="documentDescription"></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancelar
+            </button>
+
+            <button
+                class="primary"
+                onclick="saveDocument()"
+            >
+                Salvar
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveDocument(){
+
+    const name =
+        document.getElementById("documentName")
+        .value.trim();
+
+    if(!name){
+
+        alert("Informe o nome.");
+
+        return;
 
     }
 
-    openModal("documentModal");
-}
+    db.documents.push({
 
-function editDocument(id){
-    openDocumentModal(id);
-}
+        id:uid(),
 
-function saveDocument(event){
-
-    event.preventDefault();
-
-    const id =
-        document.getElementById("documentId").value;
-
-    const data = {
-
-        name:
-            document.getElementById("documentName").value,
-
-        category:
-            document.getElementById("documentCategory").value,
-
-        date:
-            document.getElementById("documentDate").value,
+        name,
 
         description:
-            document.getElementById("documentDescription").value
-
-    };
-
-    if(id){
-
-        const d =
-            db.documents.find(x => x.id === id);
-
-        Object.assign(d,data);
-
-    }else{
-
-        db.documents.push({
-            id:uid(),
-            ...data
-        });
-
-    }
-
-    closeModal("documentModal");
-
-    saveDB();
-}
-
-function deleteDocument(id){
-
-    if(!confirm("Excluir documento?")) return;
-
-    db.documents =
-        db.documents.filter(
-            d => d.id !== id
-        );
-
-    saveDB();
-}
-
-
-/* =========================================================
-   MODAIS
-========================================================= */
-
-function openModal(id){
-
-    document.getElementById(id)
-        .classList.add("show");
-}
-
-function closeModal(id){
-
-    document.getElementById(id)
-        .classList.remove("show");
-}
-
-document.querySelectorAll(".modal")
-    .forEach(modal => {
-
-        modal.addEventListener("click",event => {
-
-            if(event.target === modal){
-                modal.classList.remove("show");
-            }
-
-        });
+            document.getElementById("documentDescription")
+            .value
 
     });
 
+    closeModal();
 
-/* =========================================================
-   BACKUP
-========================================================= */
+    saveDB();
 
-function backupData(){
-
-    const data =
-        JSON.stringify(db,null,2);
-
-    const blob =
-        new Blob(
-            [data],
-            {type:"application/json"}
-        );
-
-    const url =
-        URL.createObjectURL(blob);
-
-    const a =
-        document.createElement("a");
-
-    a.href = url;
-
-    a.download =
-        `qg-backup-${today()}.json`;
-
-    a.click();
-
-    URL.revokeObjectURL(url);
 }
 
-function restoreData(event){
 
-    const file =
-        event.target.files[0];
+function deleteDocument(id){
 
-    if(!file) return;
+    if(!confirm("Excluir documento?"))
+        return;
 
-    const reader =
-        new FileReader();
+    db.documents =
+        db.documents.filter(
+            d=>d.id!==id
+        );
 
-    reader.onload = function(){
+    saveDB();
 
-        try{
-
-            const imported =
-                JSON.parse(reader.result);
-
-            if(!imported ||
-               !Array.isArray(imported.businesses) ||
-               !Array.isArray(imported.transactions)){
-
-                alert("Backup inválido.");
-
-                return;
-            }
-
-            db = imported;
-
-            ensureDB();
-
-            saveDB();
-
-            alert("Backup restaurado.");
-
-        }catch(error){
-
-            alert("Não foi possível restaurar o backup.");
-
-        }
-
-    };
-
-    reader.readAsText(file);
-
-    event.target.value = "";
 }
 
 
 /* =========================================================
-   ZERAR SISTEMA
+   MODAL
 ========================================================= */
 
-function resetSystem(){
+function showModal(html){
 
-    const confirmed =
-        confirm(
-            "ATENÇÃO!\n\n" +
-            "Isso vai apagar todos os dados do QG " +
-            "deste navegador.\n\n" +
-            "Deseja realmente zerar?"
-        );
+    document.getElementById("modalContent")
+        .innerHTML=html;
 
-    if(!confirmed) return;
+    document.getElementById("modalBg")
+        .classList.add("show");
 
-    localStorage.removeItem(STORAGE_KEY);
+}
 
-    db = {
 
-        businesses:[],
-        transactions:[],
-        clients:[],
-        projects:[],
-        people:[],
-        goals:[],
-        documents:[],
+function closeModal(){
 
-        planning:{
-            annualRevenueGoal:500000,
-            clientGoal:1000
-        }
+    document.getElementById("modalBg")
+        .classList.remove("show");
 
-    };
-
-    renderAll();
-
-    alert("QG zerado com sucesso.");
 }
 
 
@@ -5092,18 +4074,23 @@ function resetSystem(){
 
 function renderAll(){
 
-    ensureDB();
-
     renderDashboard();
-    renderBusinessTable();
+
+    renderBusinesses();
+
     renderFinance();
+
     renderClients();
+
     renderProjects();
+
     renderPeople();
+
     renderGoals();
+
     renderPlanning();
+
     renderDocuments();
-    populateBusinessSelects();
 
 }
 
@@ -5116,9 +4103,15 @@ loadDB();
 
 renderAll();
 
-window.addEventListener("resize",()=>{
-    drawChart();
-});
+
+/* Redesenha gráfico ao redimensionar */
+
+window.addEventListener(
+    "resize",
+    ()=>{
+        drawChart();
+    }
+);
 
 </script>
 
